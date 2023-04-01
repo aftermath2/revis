@@ -1,0 +1,12 @@
+{
+    "id": "bitaxe_supra",
+    "title": "Bitaxe Supra",
+    "content": "Bitaxe Supra is a fully open-source Bitcoin ASIC miner equipped with the BM1368 ASIC chip from Antminer's S21. This design ensures efficient and powerful mining capabilities, achieving ~700 GH/s at an energy efficiency of 17.5J/TH. It operates using a 5V DC 4A power supply connected via a 2.1/5.5mm barrel jack connector.",
+    "image_url": "https://bitronics.com/storage/2024/04/Supra_centered.png",
+    "categories": [
+        "bitcoin",
+        "mining",
+        "hardware",
+        "bitaxe"
+    ]
+}

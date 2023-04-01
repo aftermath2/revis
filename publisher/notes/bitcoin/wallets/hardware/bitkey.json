@@ -1,0 +1,12 @@
+{
+    "id": "bitkey",
+    "title": "Bitkey",
+    "content": "Bitkey is Block's mobile-first, multisig Bitcoin hardware wallet that removes seed-word backups by splitting your private key across a fingerprint-secured hardware puck, your iOS/Android phone, and Block's recovery servers so you can spend with a tap and still recover if any two of the three parts are lost.",
+    "image_url": "https://m.media-amazon.com/images/I/811tTHhiWTL._AC_SL1500_.jpg",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "hardware",
+        "block"
+    ]
+}

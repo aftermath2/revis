@@ -1,0 +1,12 @@
+{
+  "id": "robosats",
+  "title": "RoboSats",
+  "content": "RoboSats is a simple and private way to exchange bitcoin for national currencies. RoboSats simplifies the peer-to-peer user experience and uses lightning hold invoices to minimize custody and trust requirements. The deterministically generated avatars help users stick to best privacy practices.",
+  "image_url": "https://raw.githubusercontent.com/hsjoberg/blixt-wallet/refs/tags/v0.8.0/contrib/service-image/RoboSats.png",
+  "categories": [
+    "bitcoin",
+    "decentralized",
+    "exchange",
+    "robosats"
+  ]
+}

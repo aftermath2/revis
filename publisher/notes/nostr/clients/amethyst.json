@@ -1,0 +1,11 @@
+{
+    "id": "amethyst",
+    "title": "Amethyst",
+    "content": "Amethyst is a native Android app that functions as a client for the Nostr protocol, allowing users to control their own data and communicate securely using public-key cryptography. It supports various features like private messaging and event management through a decentralized network of relays.",
+    "image_url": "https://raw.githubusercontent.com/vitorpamplona/amethyst/refs/tags/v1.05.1/docs/design/3rd%20Logo%20-%20Zitron/amethyst.jpg",
+    "categories": [
+        "nostr",
+        "client",
+        "mobile"
+    ]
+}

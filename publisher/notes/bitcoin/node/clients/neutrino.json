@@ -1,0 +1,11 @@
+{
+    "id": "neutrino",
+    "title": "Neutrino: Privacy-Preserving Bitcoin Light Client",
+    "content": "Neutrino is a Bitcoin light client protocol and library that enables secure, private verification of Bitcoin transactions without requiring a full node or trusting a centralized server. Implemented in Go, it uses BIP-157 and BIP-158 compact client-side block filtering to download only relevant block data while maintaining strong security guarantees. Neutrino requests compact filters from full nodes, allowing wallets to determine which blocks contain their transactions locally without revealing their addresses to network peers.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "node",
+        "client"
+    ]
+}

@@ -1,0 +1,152 @@
+/* Interactive Star Rating Input Styles */
+.starRatingInput {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.starsInput {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.starContainer {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.starBackground {
+    position: relative;
+    z-index: 1;
+}
+
+.starForeground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.starInputWrapper {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    position: relative;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.starInputWrapper:hover {
+    transform: scale(1.1);
+}
+
+.star {
+    transition: all 0.2s ease;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.starInteractive {
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.starFilled {
+    color: var(--primary-color);
+    filter: drop-shadow(0 2px 4px rgba(var(--primary-color-rgb), 0.4));
+}
+
+.starEmpty {
+    color: #d1d5db;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+}
+
+/* Dark mode adjustments */
+:global(body.dark) .starEmpty {
+    color: #6b7280;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.1));
+}
+
+/* Star sizes */
+.starSmall {
+    font-size: 16px;
+}
+
+.starMedium {
+    font-size: 18px;
+}
+
+.starLarge {
+    font-size: 20px;
+}
+
+/* Size variants for the container */
+.starRatingSmall {
+    gap: 8px;
+}
+
+.starRatingMedium {
+    gap: 10px;
+}
+
+.starRatingLarge {
+    gap: 12px;
+}
+
+/* Hover effects for better interactivity */
+.starsInput:hover .starInputWrapper:not(:hover) .starFilled {
+    opacity: 0.7;
+}
+
+/* Focus styles for accessibility */
+.starInputWrapper:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Active state */
+.starInputWrapper:active {
+    transform: scale(1.05);
+}
+
+/* Mobile touch optimization */
+@media (max-width: 768px) {
+    .starInputWrapper {
+        padding: 10px;
+        min-width: 48px;
+        min-height: 48px;
+    }
+
+    .starInputWrapper:hover {
+        transform: scale(1.1);
+        background: rgba(var(--primary-color-rgb), 0.15);
+    }
+
+    .starInputWrapper:active {
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width: 480px) {
+    .starsInput {
+        gap: 2px;
+    }
+
+    .starInputWrapper {
+        padding: 8px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+}

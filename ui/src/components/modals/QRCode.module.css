@@ -1,0 +1,184 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: auto;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header {
+    padding: 24px 24px 16px 24px;
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.05) 0%, transparent 100%);
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.countdown {
+  padding: 12px 16px;
+}
+
+.countdownTimer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.countdownLabel {
+    font-size: 0.85em;
+    color: var(--text-primary);
+}
+
+.countdownTime {
+    font-size: 0.85em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.qrContainer {
+    background: var(--bg-secondary);
+    padding: 24px;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.qrCode {
+    display: block;
+    width: 100%;
+    max-width: 256px;
+    height: auto;
+}
+
+.invoicePaid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.invoicePaidIcon {
+    color: var(--primary-color);
+}
+
+.footer {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+@media (max-width: 640px) {
+    .backdrop {
+        padding: 12px;
+    }
+
+    .modal {
+        max-height: 95vh;
+        border-radius: 8px;
+    }
+
+    .header {
+        padding: 20px 16px 12px 16px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .content {
+        padding: 24px 16px;
+        gap: 20px;
+    }
+
+    .qrContainer {
+        padding: 16px;
+    }
+
+    .qrCode {
+        max-width: 200px;
+    }
+
+    .valueText {
+        font-size: 12px;
+    }
+
+    .footer {
+        padding: 12px 16px 20px 16px;
+    }
+
+    .cancelButton {
+        padding: 10px 24px;
+        font-size: 15px;
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 360px) {
+    .qrCode {
+        max-width: 160px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .valueText {
+        font-size: 11px;
+    }
+}

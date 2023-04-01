@@ -1,0 +1,13 @@
+{
+    "id": "coinos_wallet",
+    "title": "Coinos",
+    "content": "Coinos is a web-based custodial bitcoin wallet and nostr client. You can use it as a front end to your personal bitcoin and lightning nodes or host a public instance that allows anyone to register with a username and password.",
+    "image_url": "https://raw.githubusercontent.com/coinos/coinos-ui/refs/tags/v1.0.9/static/images/logo.png",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "wallet",
+        "web",
+        "custodial"
+    ]
+}

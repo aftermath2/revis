@@ -1,0 +1,11 @@
+{
+    "id": "ark",
+    "title": "Ark: A UTXO-based Transaction Batching Protocol",
+    "content": "Ark is a novel scaling protocol for Bitcoin that enables offchain transaction execution while allowing users to keep full custody of their funds.\n\nThis is made possible through the introduction of Virtual UTXOs (VTXOs), which allow users to transact offchain while retaining the ability to unilaterally exit to the Bitcoin mainchain. Coordinated by an operator who batches user activity into on-chain commitments, Ark achieves high transaction throughput with a minimal on-chain footprint, offering a simple and accessible scaling solution for Bitcoin, and can accommodate layer-2 constructions that would be too inefficient or costly to execute on the Bitcoin mainchain.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "ark",
+        "whitepaper"
+    ]
+}

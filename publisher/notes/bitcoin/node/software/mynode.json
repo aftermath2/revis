@@ -1,0 +1,11 @@
+{
+  "id": "mynode",
+  "title": "MyNode",
+  "content": "MyNode is an open-source software stack that turns mini PCs into a plug-and-play Bitcoin Core full node, Lightning Network daemon, and privacy-centric server with multiple pre-configured apps.",
+  "image_url": "https://mynodebtc.com/images/mynode_logo.png",
+  "categories": [
+    "bitcoin",
+    "node",
+    "software"
+  ]
+}

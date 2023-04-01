@@ -1,0 +1,10 @@
+{
+    "id": "payjoin",
+    "title": "PayJoin",
+    "content": "Payjoin is a technique for paying someone while including one of their inputs in the payment to enhance the privacy of the spender, the receiver, and bitcoin users.",
+    "image_url": "https://payjoin.org/svg/monad.svg",
+    "categories": [
+        "bitcoin",
+        "coinjoin"
+    ]
+}

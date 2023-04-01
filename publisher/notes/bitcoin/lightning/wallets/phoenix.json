@@ -1,0 +1,14 @@
+{
+    "id": "phoenix_wallet",
+    "title": "Phoenix",
+    "content": "Phoenix is a non-custodial Bitcoin wallet that runs on Lightning, allowing you to send and receive bitcoins faster and cheaper. It has an intuitive and simple UX and is built by ACINQ, a company that develops Lightning solutions.",
+    "image_url": "https://raw.githubusercontent.com/ACINQ/phoenix/refs/tags/ios-v2.7.4/.readme/phoenix_text.png",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "wallet",
+        "mobile",
+        "non_custodial",
+        "acinq"
+    ]
+}

@@ -1,0 +1,193 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.notFound {
+    text-align: center;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    color: var(--text-primary);
+}
+
+.reviewSection {
+    width: 100%;
+}
+
+.noteSection {
+    margin-top: 0;
+    width: 100%;
+}
+
+.compactNoteHeader {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.noteInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.reviewingLabel {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.noteTitle {
+    font-size: 1em;
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.noteTitle:hover {
+    color: var(--primary-color);
+}
+
+.initialZapSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.08) 0%, rgba(var(--primary-color-rgb), 0.03) 100%);
+    border: 2px solid rgba(var(--primary-color-rgb), 0.2);
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: -8px;
+    gap: 16px;
+}
+
+.initialZapContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.initialZapLabel {
+    font-size: 0.95em;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.initialZapValue {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--card-bg);
+    border-radius: 24px;
+}
+
+.initialZapIcon {
+    color: var(--primary-color);
+    font-size: 1.4rem !important;
+    filter: drop-shadow(0 0 4px rgba(var(--primary-color-rgb), 0.4));
+}
+
+.initialZapAmount {
+    font-weight: 700;
+    font-size: 1em;
+    color: var(--text-primary);
+}
+
+.zapsSection {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.zapsSectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.zapsSectionHeader h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.zapsList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 4px;
+}
+
+/* Make note card smaller and less prominent */
+.notePreview {
+    opacity: 0.7;
+    transform: scale(0.95);
+    transition: all 0.2s ease;
+}
+
+.notePreview:hover {
+    opacity: 0.9;
+    transform: scale(0.98);
+}
+
+.clickableNote {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+        gap: 16px;
+    }
+
+    .reviewHeader h3 {
+        font-size: 1.2em;
+    }
+
+    .compactNoteHeader {
+        padding: 10px 12px;
+    }
+
+    .noteInfo {
+        gap: 6px;
+    }
+
+    .reviewingLabel {
+        font-size: 0.85em;
+    }
+
+    .noteTitle {
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .notePreview {
+        transform: scale(0.92);
+    }
+
+    .notePreview:hover {
+        transform: scale(0.95);
+    }
+}

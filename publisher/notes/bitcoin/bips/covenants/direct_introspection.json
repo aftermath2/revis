@@ -1,0 +1,11 @@
+{
+    "id": "direct_introspection",
+    "title": "Direct Introspection",
+    "content": "This covenant proposal main idea is to give the Script of a transaction's inputs direct access into the entire transaction's data. If the script can inspect any part of the transaction, it is by definition introspective and can enforce any possible constraint on the transaction's properties.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "covenant"
+    ]
+}

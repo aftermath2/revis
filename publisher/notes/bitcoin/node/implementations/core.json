@@ -1,0 +1,11 @@
+{
+    "id": "bitcoin_core",
+    "title": "Bitcoin Core",
+    "content": "Bitcoin Core is the reference Bitcoin client software. It functions as a full node, meaning it downloads and validates the entire blockchain, enforcing all of Bitcoin's consensus rules. It includes a wallet for managing bitcoin and can be run with a graphical interface or as a headless server.\n\nBitcoin Core was created by Satoshi Nakamoto, and although ownership has been passed down and many upgrades have been added to the project, the latest version and Satoshi's original version are still compatible.",
+    "image_url": "https://bitcoincore.org/assets/images/bitcoin_core_logo.png",
+    "categories": [
+        "bitcoin",
+        "node",
+        "implementation"
+    ]
+}

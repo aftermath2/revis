@@ -1,0 +1,11 @@
+{
+    "id": "bip_110",
+    "title": "BIP-110: Reduced Data Temporary Softfork",
+    "content": "This BIP proposes to temporarily limit the size of data fields at the consensus level, in order to correct distorted incentives caused by standardizing support for arbitrary data, and to refocus priorities on improving Bitcoin as money.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "soft_fork"
+    ]
+}

@@ -1,0 +1,144 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/* Scroll wrapper - allows scrolling from anywhere on the page */
+.scrollWrapper {
+  width: 100%;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.root {
+  background-color: var(--background-primary);
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 850px) 300px;
+  grid-template-areas: "sidebar content recent";
+  width: 100%;
+  max-width: 1350px;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  will-change: transform;
+}
+
+/* Main content area */
+.content {
+  grid-area: content;
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-primary);
+  box-sizing: border-box;
+}
+
+.recentReviews {
+  grid-area: recent;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  will-change: transform;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* Mobile and tablet responsiveness */
+/* Desktop: 3 columns (>1200px) */
+/* Tablet: 2 columns, hide right panel (769px - 1200px) */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: "sidebar content";
+  }
+
+  .recentReviews {
+    display: none;
+  }
+}
+
+/* Small tablet: narrower sidebar (769px - 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 180px 1fr;
+    grid-template-areas: "sidebar content";
+  }
+}
+
+/* Mobile: bottom nav (<= 768px) */
+@media (max-width: 768px) {
+  .scrollWrapper {
+    padding-bottom: 60px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "content";
+  }
+
+  .sidebar {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+    overflow-y: visible;
+  }
+
+  .content {
+    border-left: none;
+    border-right: none;
+  }
+
+  .main {
+    padding: 16px;
+    padding-bottom: 80px;
+  }
+}
+
+/* Small mobile (<= 480px) */
+@media (max-width: 480px) {
+  .scrollWrapper {
+    padding-bottom: 55px;
+  }
+
+  .main {
+    padding: 12px;
+    padding-bottom: 75px;
+  }
+}

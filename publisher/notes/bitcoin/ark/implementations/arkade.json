@@ -1,0 +1,11 @@
+{
+    "id": "arkade",
+    "title": "Arkade",
+    "content": "Arkade is a Bitcoin-native virtual execution layer that is built on the Ark protocol foundation. It enables programmable money through offchain coordination while preserving Bitcoin's security guarantees. Arkade virtualizes Bitcoin's transaction layer to enable instant, parallel execution without requiring protocol changes.",
+    "image_url": "https://pbs.twimg.com/profile_images/1924560924347924481/tYc8skAr_400x400.png",
+    "categories": [
+        "bitcoin",
+        "ark",
+        "implementation"
+    ]
+}

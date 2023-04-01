@@ -1,0 +1,11 @@
+{
+    "id": "op_checktemplateverify",
+    "title": "OP_CHECKTEMPLATEVERIFY",
+    "content": "OP_CHECKTEMPLATEVERIFY (CTV) is a proposed new opcode that takes a commitment and requires any transaction executing the opcode to match the commitment in the following fields: its version, locktime, signature scripts, number of inputs, sequences, number of outputs, outputs, and the location of the input being spent within the spending transaction.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "covenant"
+    ]
+}

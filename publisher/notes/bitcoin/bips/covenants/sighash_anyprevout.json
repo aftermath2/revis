@@ -1,0 +1,11 @@
+{
+    "id": "sighash_anyprevout",
+    "title": "ANYPREVOUT",
+    "content": "SIGHASH_ANYPREVOUT (APO) describes a new type of public key for tapscript (BIP 342) transactions. It allows signatures for these public keys to not commit to the exact UTXO being spent. This enables dynamic binding of transactions to different UTXOs, provided they have compatible scripts.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "covenant"
+    ]
+}

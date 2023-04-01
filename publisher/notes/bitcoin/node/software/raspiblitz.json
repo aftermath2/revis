@@ -1,0 +1,11 @@
+{
+    "id": "raspiblitz",
+    "title": "RaspiBlitz",
+    "content": "RaspiBlitz is an open-source DIY Bitcoin and Lightning Network node software stack built for Raspberry Pi, enabling users to run a full node with channel management and privacy tools on inexpensive hardware.",
+    "image_url": "https://raw.githubusercontent.com/raspiblitz/raspiblitz/refs/tags/v1.12.0/home.admin/BlitzTUI/images/RaspiBlitz_Logo_Icon.png",
+    "categories": [
+        "bitcoin",
+        "node",
+        "software"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "coinos-mint",
+    "title": "Coinos Cashu Mint",
+    "content": "Coinos Cashu mint.",
+    "image_url": "https://coinos.io/images/icon.png",
+    "categories": [
+        "ecash",
+        "cashu",
+        "mint"
+    ]
+}

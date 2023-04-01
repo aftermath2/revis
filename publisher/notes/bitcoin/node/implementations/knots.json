@@ -1,0 +1,11 @@
+{
+    "id": "bitcoin_knots",
+    "title": "Bitcoin Knots",
+    "content": "Bitcoin Knots is an alternative client software for the Bitcoin network. Maintained primarily by Luke Dashjr, Knots integrates patches for improved privacy, security, and functionality—such as advanced coin control, enhanced transaction management, and replacement features like CPFP (Child Pays for Parent) and RBF (Replace-by-Fee) by default. \n\nBitcoin Knots is fully compatible with the Bitcoin consensus rules, allowing seamless interaction with nodes running other implementations.",
+    "image_url": "https://pbs.twimg.com/profile_images/1964051277920530432/0fGlRT1R_400x400.jpg",
+    "categories": [
+        "bitcoin",
+        "node",
+        "implementation"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "id": "jade_plus",
+    "title": "Jade Plus",
+    "content": "Jade Plus is a specialized hardware wallet device by Blockstream designed to protect the private keys to your bitcoin and layer-2 assets. It offers a simple setup and workflow that is convenient for new users, while also possessing more advanced functionality desired by veteran self-custodians.",
+    "image_url": "https://m.media-amazon.com/images/I/51oxHokhOYL._AC_SL1435_.jpg",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "hardware",
+        "blockstream"
+    ]
+}

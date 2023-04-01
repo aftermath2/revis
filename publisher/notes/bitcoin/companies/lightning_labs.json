@@ -1,0 +1,11 @@
+{
+    "id": "lightning_labs",
+    "title": "Lightning Labs",
+    "content": "Lightning Labs develops open source, secure, and scalable Lightning systems that enable faster, cheaper, global bitcoin transactions. It maintains LND (Lightning Network Daemon), Lightning terminal, Loop submarine-swap service, Pool liquidity marketplace, Terminal node explorer and Taro protocol for asset issuance over Lightning; open-source contributions to Lightning specification.",
+    "image_url": "https://pbs.twimg.com/profile_images/1224898046195974145/7S25hk9V_400x400.png",
+    "categories": [
+        "bitcoin",
+        "company",
+        "lightning_labs"
+    ]
+}

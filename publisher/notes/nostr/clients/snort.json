@@ -1,0 +1,11 @@
+{
+    "id": "snort",
+    "title": "Snort",
+    "content": "Snort is a nostr UI built with React aiming for speed and efficiency.",
+    "image_url": "https://raw.githubusercontent.com/v0l/snort/refs/tags/v0.4.0/packages/app/public/snort/nostrich_512.png",
+    "categories": [
+        "nostr",
+        "client",
+        "web"
+    ]
+}

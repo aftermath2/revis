@@ -1,0 +1,11 @@
+{
+    "id": "lnserver_com_mint",
+    "title": "LNServer Cashu Mint",
+    "content": "LNServer Cashu mint.",
+    "image_url": "https://lnserver.com/lnserver-logo.png",
+    "categories": [
+        "ecash",
+        "cashu",
+        "mint"
+    ]
+}

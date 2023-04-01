@@ -1,0 +1,10 @@
+{
+    "id": "cashu",
+    "title": "Cashu",
+    "content": "Cashu is a free and open-source Chaumian ecash protocol built for Bitcoin. A digital bearer token that is stored on a user's device, very similar to physical cash. The Cashu protocol allows you to build applications such as wallets or voucher systems. Transactions are instant and nearly free.",
+    "image_url": "https://cashu.space/mstile-150x150.png",
+    "categories": [
+        "ecash",
+        "cashu"
+    ]
+}

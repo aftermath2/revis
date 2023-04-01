@@ -1,0 +1,11 @@
+{
+    "id": "taproot",
+    "title": "Taproot",
+    "content": "Taproot is a consensus-layer upgrade to the Bitcoin protocol that was activated in November 2021 as a softfork (BIPs 340, 341, and 342). Designed to improve Bitcoin's privacy, efficiency, and flexibility, Taproot introduces three interconnected innovations: Schnorr signatures, Merkelized Abstract Syntax Trees (MAST), and Tapscript.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "soft_fork"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "over_the_moon",
+    "title": "Over The Moon",
+    "content": "RoboSats coordinator node that facilitates anonymous, peer-to-peer bitcoin trading within the decentralized RoboSats exchange ecosystem. This coordinator enables users to buy and sell bitcoin without KYC verification by acting as a trustless escrow service that holds funds in HOLD invoices while fiat transactions are completed.",
+    "image_url": "https://unsafe.robosats.org/static/federation/avatars/moon.webp",
+    "categories": [
+        "bitcoin",
+        "decentralized",
+        "exchange",
+        "robosats",
+        "coordinator"
+    ]
+}

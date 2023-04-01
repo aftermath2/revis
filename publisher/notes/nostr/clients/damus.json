@@ -1,0 +1,12 @@
+{
+    "id": "damus",
+    "title": "Damus",
+    "content": "Damus is a popular nostr client for iOS, also available on Android and desktop. The goal of Damus is to integrate bitcoin with social, and to show the power, censorship resistance, and scalability of nostr in general.",
+    "image_url": "https://raw.githubusercontent.com/damus-io/damus/refs/tags/v1.16-rc6/damus/Assets.xcassets/damus-home.imageset/damus-home%403x.png",
+    "categories": [
+        "nostr",
+        "client",
+        "mobile",
+        "desktop"
+    ]
+}

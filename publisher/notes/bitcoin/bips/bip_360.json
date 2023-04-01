@@ -1,0 +1,11 @@
+{
+    "id": "bip_360",
+    "title": "BIP-360: Pay to Tapscript Hash (P2TSH)",
+    "content": "This BIP proposes a new output type: Pay-to-Tapscript-Hash (P2TSH), via a soft fork. P2TSH outputs operate with nearly the same functionality as P2TR (Pay-to-Taproot) outputs, but with the key path spend removed.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "soft_fork"
+    ]
+}

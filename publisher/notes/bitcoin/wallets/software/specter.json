@@ -1,0 +1,11 @@
+{
+    "id": "specter_wallet",
+    "title": "Specter Desktop",
+    "content": "Specter Desktop is a free, open-source Bitcoin wallet that runs as a local web server and acts as a user-friendly GUI on top of your own Bitcoin Core node. It is a convenient and user-friendly GUI with a focus on multisignature setup with air-gapped hardware wallets.",
+    "image_url": "https://specter.solutions/assets/Specter_logo_1756046218246-Cuyd3_u2.png",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "software"
+    ]
+}

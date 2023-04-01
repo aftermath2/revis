@@ -1,0 +1,10 @@
+{
+    "id": "rootstock",
+    "title": "Rootstock",
+    "content": "Rootstock (RSK) is a Bitcoin sidechain protocol built to bring Turing complete smart contracts to the Bitcoin network. The RSK blockchain is a separate chain that is secured through Bitcoin miners who participate in merge mining and use a two-way peg to bridge Bitcoin from the main chain to its network.",
+    "image_url": "https://avatars.githubusercontent.com/u/28455056?s=200&v=4",
+    "categories": [
+        "bitcoin",
+        "sidechain"
+    ]
+}

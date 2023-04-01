@@ -1,0 +1,13 @@
+{
+    "id": "blixt_wallet",
+    "title": "Blixt Wallet",
+    "content": "Blixt is a non-custodial open-source Bitcoin Lightning Wallet for Android and iOS with a focus on usability and user experience. Blixt Wallet uses the Lightning Network client lnd and the Bitcoin SPV client Neutrino under the hood, directly on the phone, respecting your privacy. The wallet does not use any centralized servers for doing transactions.",
+    "image_url": "https://raw.githubusercontent.com/hsjoberg/blixt-wallet/refs/tags/v0.8.0/contrib/service-image/Blixt%20Wallet.png",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "wallet",
+        "mobile",
+        "non_custodial"
+    ]
+}

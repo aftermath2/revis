@@ -1,0 +1,11 @@
+{
+    "id": "sparrow_wallet",
+    "title": "Sparrow Wallet",
+    "content": "Sparrow is a modern desktop Bitcoin wallet application supporting most hardware wallets and built on common standards such as PSBT, with an emphasis on transparency and usability.",
+    "image_url": "https://www.sparrowwallet.com/assets/images/sparrow.png",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "software"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "core_lightning",
+    "title": "Core Lightning",
+    "content": "Core Lightning (CLN) is a lightweight, highly customizable and standard compliant implementation of the Lightning Network protocol. As one of the three major Lightning implementations alongside LND and Eclair, CLN focuses on developer flexibility, modularity, and security. It features a plugin architecture allowing developers to extend functionality, comprehensive control over channel management and routing, and strong emphasis on safety with formal verification processes.",
+    "image_url": "https://corelightning.org/assets/img/logos/core_lightning_web.svg",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "implementation",
+        "cln",
+        "blockstream"
+    ]
+}

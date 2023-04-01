@@ -1,0 +1,10 @@
+{
+    "id": "gpt_5_3_codex",
+    "title": "GPT-5.3-Codex",
+    "content": "GPT-5.3-Codex is an agentic coding large language model created by OpenAI that combines the coding performance of GPT-5.2-Codex with the reasoning and professional knowledge capabilities of GPT-5.2",
+    "image_url": "",
+    "categories": [
+        "ai",
+        "llm"
+    ]
+}

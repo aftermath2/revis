@@ -1,0 +1,13 @@
+{
+    "id": "mysty_breez_wallet",
+    "title": "Mysty Breez",
+    "content": "Misty Breez is a self-custodial Flutter mobile app that serves as a reference implementation for the Breez SDK app, offering a simple way of sending and receiving Lightning payments.",
+    "image_url": "https://raw.githubusercontent.com/hsjoberg/blixt-wallet/refs/tags/v0.8.0/contrib/service-image/Breez.jpg",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "wallet",
+        "mobile",
+        "non_custodial"
+    ]
+}

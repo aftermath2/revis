@@ -1,0 +1,12 @@
+{
+    "id": "bitaxe_gamma",
+    "title": "Bitaxe Gamma",
+    "content": "Bitaxe Gamma is a fully open-source Bitcoin ASIC miner equipped with the BM1370 ASIC chip from Antminer's S21 Pro. This design ensures efficient and powerful mining capabilities, achieving ~1.2TH/s at an energy efficiency of 14J/TH. It operates using a 5V DC 6A power supply connected via a 2.1/5.5mm barrel jack connector.",
+    "image_url": "https://raw.githubusercontent.com/skot/bitaxe/refs/tags/v400-order/doc/bitaxe_204.jpg",
+    "categories": [
+        "bitcoin",
+        "mining",
+        "hardware",
+        "bitaxe"
+    ]
+}

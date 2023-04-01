@@ -1,0 +1,11 @@
+{
+    "id": "ledger_nano_x",
+    "title": "Ledger Nano X",
+    "content": "Ledger Nano X is the Bluetooth-enabled, USB-C hardware wallet from French vendor Ledger that secures your private keys inside a CC EAL5+ certified secure element (ST33J2M0) while letting you manage 5,500+ crypto assets—including Bitcoin, Lightning, and Liquid—from a single mobile or desktop companion app. The 128×64 pixel OLED screen and two-button interface force on-device verification of every address, amount, and fee before any signature leaves the tamper-resistant chip; pairing with phones is done over end-to-end encrypted Bluetooth LE so the seed never exits the secure element. A rechargeable 100 mAh battery gives months of standby, and the brushed-steel swivel cover protects the screen and buttons when closed. Bitcoin-specific firmware (Ledger Bitcoin) implements full PSBT, taproot, miniscript, and multisig workflows that integrate with Specter, Sparrow, BlueWallet, Nunchuk, and Ledger Live. Recovery is handled via a standard 24-word BIP-39 seed plus optional passphrase; the device ships with a sealed box and holographic trust mark. Firmware updates are signed by Ledger's Root-of-Trust keys and must be confirmed on-device, preventing remote brick or back-door installs.",
+    "image_url": "https://cdn.shopify.com/s/files/1/2974/4858/files/lnx_black1.webp",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "hardware"
+    ]
+}

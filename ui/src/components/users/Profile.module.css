@@ -1,0 +1,275 @@
+.container {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Profile Header */
+.profileHeader {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.profileContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.settingsButton {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.settingsButton svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+}
+
+.settingsButton:hover {
+    color: var(--primary-color);
+    background: var(--background-hover);
+}
+
+.settingsButton:hover svg {
+    transform: rotate(45deg);
+}
+
+.settingsButton:active {
+    transform: scale(0.95);
+}
+
+.profileInfo {
+    width: 100%;
+    text-align: center;
+}
+
+.profileName {
+    margin: 0 0 8px 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--text-primary);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.profileDescription {
+    margin: 0 0 12px 0;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.accountDetails {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.accountDetails .infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.accountDetails .infoItem label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.section {
+    background: var(--background-secondary);
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.accountInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.infoItem label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.privateKeyContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.privateKey {
+    flex: 1;
+    padding: 12px 48px 12px 16px;
+    /* Extra padding on right for button */
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    word-break: break-all;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.copyButton {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.copyButton svg {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.copyButton:hover {
+    color: var(--primary-color);
+}
+
+.copyButton:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+.placeholder {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 40px 20px;
+    font-style: italic;
+}
+
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+
+    .profileHeader {
+        padding: 16px;
+    }
+
+    .profileContent {
+        gap: 16px;
+    }
+
+    .settingsButton {
+        top: 12px;
+        right: 12px;
+        padding: 6px;
+    }
+
+    .settingsButton svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .profileName {
+        font-size: 1.3em;
+        padding-right: 0;
+    }
+
+    .accountDetails {
+        margin-top: 12px;
+        padding-top: 12px;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .privateKey {
+        padding: 12px 52px 12px 12px;
+        /* More padding on right for small screens */
+        font-size: 0.8rem;
+    }
+
+    .copyButton {
+        right: 6px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .privateKey {
+        padding: 10px 56px 10px 10px;
+        /* Even more padding for tiny screens */
+        font-size: 0.75rem;
+    }
+
+    .copyButton {
+        right: 4px;
+        padding: 10px;
+    }
+
+    .copyButton svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+}

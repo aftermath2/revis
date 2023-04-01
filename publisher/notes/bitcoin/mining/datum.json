@@ -1,0 +1,11 @@
+{
+    "id": "datum",
+    "title": "DATUM",
+    "content": "DATUM (Decentralized Alternative Templates for Universal Mining) is a bitcoin mining protocol that allows anyone to create their own block templates using their own Bitcoin node, restoring transaction selection control from pools to individual miners.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "mining",
+        "datum"
+    ]
+}

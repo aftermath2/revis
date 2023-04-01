@@ -1,0 +1,11 @@
+{
+    "id": "electrum_wallet",
+    "title": "Electrum Wallet",
+    "content": "Electrum is a lightweight Bitcoin wallet known for its speed and low resource usage. It allows users to store their private keys locally and recover their wallet using a secret phrase.",
+    "image_url": "https://electrum.org/logo/electrum_logo.png",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "software"
+    ]
+}

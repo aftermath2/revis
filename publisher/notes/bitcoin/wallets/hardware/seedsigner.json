@@ -1,0 +1,11 @@
+{
+    "id": "seedsigner",
+    "title": "SeedSigner",
+    "content": "SeedSigner is a project that lets you build a verifiably air-gapped, stateless Bitcoin signing device using a Raspberry Pi Zero and a camera. You can create and store BIP39 seed phrases, scan and sign transactions with QR codes, and use it with various wallet software.",
+    "image_url": "https://seedsigner.com/wp-content/uploads/2024/05/Component-Purchase-Links.jpeg",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "hardware"
+    ]
+}

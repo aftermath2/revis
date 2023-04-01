@@ -1,0 +1,12 @@
+{
+    "id": "charge_lnd",
+    "title": "Charge LND",
+    "content": "charge-lnd is an automated fee management tool for LND that dynamically adjusts channel fees based on customizable policies.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "lnd",
+        "tool"
+    ]
+}

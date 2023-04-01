@@ -1,0 +1,10 @@
+{
+    "id": "whirlpool",
+    "title": "Whirlpool",
+    "content": "Whirlpool is a framework backed up by a collection of software tools that mathematically disassociates the ownership of inputs to outputs in a given bitcoin transaction. This is to increase the privacy of the users involved, protect against financial surveillance, and to increase the fungibility of the Bitcoin network as a whole.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "coinjoin"
+    ]
+}

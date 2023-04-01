@@ -1,0 +1,11 @@
+{
+    "id": "wasabi_wallet",
+    "title": "Wasabi Wallet",
+    "content": "Wasabi is an open-source, non-custodial, privacy-focused Bitcoin wallet for desktop, that implements trustless multi-party transactions over the Tor anonymity network.",
+    "image_url": "https://raw.githubusercontent.com/WalletWasabi/WalletWasabi/refs/tags/v2.7.2/Contrib/Assets/WasabiLogo256.png",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "software"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "iris",
+    "title": "Iris",
+    "content": "Iris is a highly performant and normie-friendly offline-first Nostr web client that is not dependent on any single relay or other server. Featuring a Cashu wallet, secure DMs and social graph based content filtering.",
+    "image_url": "https://raw.githubusercontent.com/irislib/iris-client/refs/tags/app-v2.4.0/src-tauri/icons/icon.png",
+    "categories": [
+        "nostr",
+        "client",
+        "mobile",
+        "desktop",
+        "web"
+    ]
+}

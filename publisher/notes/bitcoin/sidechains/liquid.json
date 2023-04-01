@@ -1,0 +1,10 @@
+{
+    "id": "liquid",
+    "title": "The Liquid Network",
+    "content": "Liquid is an open-source Bitcoin sidechain and layer-2 solution interoperable with Lightning that enables faster, more confidential bitcoin transactions and the issuance and exchange of digital assets like stablecoins, tokenized securities, and bonds.",
+    "image_url": "https://liquid.net/_next/static/media/logo.28b5ba97.svg",
+    "categories": [
+        "bitcoin",
+        "sidechain"
+    ]
+}

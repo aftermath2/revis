@@ -1,0 +1,147 @@
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.subcategoriesSection {
+    margin-bottom: 28px;
+}
+
+.sectionTitle {
+    color: var(--text-primary);
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+}
+
+.subcategoriesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.subcategoryCard {
+    display: block;
+    padding: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.subcategoryCard:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.subcategoryName {
+    margin: 0 0 8px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.subcategoryDescription {
+    margin: 0 0 12px 0;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.notesSection {
+    margin-bottom: 40px;
+}
+
+.notFound {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.notFound p {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.notesList {
+    width: 100%;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-top: 16px;
+}
+
+.emptyMessage {
+    font-size: 1.1em;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+    font-weight: 500;
+}
+
+.emptySubtext {
+    font-size: 0.95em;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .title {
+        font-size: 1.8em;
+    }
+
+    .header {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+    }
+
+    .breadcrumbs {
+        font-size: 0.8em;
+        margin-bottom: 12px;
+    }
+
+    .subcategoriesGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .subcategoryCard {
+        padding: 14px;
+    }
+
+    .subcategoryName {
+        font-size: 1em;
+    }
+
+    .subcategoryDescription {
+        font-size: 0.85em;
+    }
+
+    .sectionTitle {
+        font-size: 1.2em;
+    }
+}

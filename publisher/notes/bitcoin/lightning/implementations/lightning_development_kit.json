@@ -1,0 +1,11 @@
+{
+    "id": "lightning_development_kit",
+    "title": "Lightning Development Kit",
+    "content": "The Lightning Development Kit (LDK), also known as Rust Lightning, is a highly modular and flexible Lightning Network implementation written in Rust. Unlike monolithic Lightning node implementations, LDK is designed as a library that can be embedded directly into applications, giving developers fine-grained control over channel management, routing, and state handling while abstracting away complex protocol details.",
+    "image_url": "https://pbs.twimg.com/profile_images/1451557924556390420/k1mTuOnO_400x400.jpg",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "implementation"
+    ]
+}

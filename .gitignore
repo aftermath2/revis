@@ -1,0 +1,5 @@
+.continue
+.env
+node_modules
+dist
+publisher/archived

@@ -1,0 +1,11 @@
+{
+    "id": "umbrel",
+    "title": "UmbrelOS",
+    "content": "UmbrelOS is a modern, user-friendly operating system and app platform that turns any Raspberry Pi or x86 system into an elegant personal Bitcoin and Lightning Network node with a polished web interface. It offers one-click installs for a curated selection of additional self-hosted apps and automates their updates.",
+    "image_url": "https://raw.githubusercontent.com/getumbrel/umbrel/refs/tags/v1.0.4/packages/ui/public/figma-exports/umbrel-ios.png",
+    "categories": [
+        "bitcoin",
+        "node",
+        "software"
+    ]
+}

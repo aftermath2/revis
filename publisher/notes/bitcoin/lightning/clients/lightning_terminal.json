@@ -1,0 +1,11 @@
+{
+    "id": "lightning_terminal",
+    "title": "Lightning Terminal",
+    "content": "Lightning Terminal (LiT) is a browser-based interface for managing channel liquidity on the Lightning Network. It integrates multiple Lightning Labs services into a single binary including Lightning Loop for submarine swaps, Pool for earning sats by opening channels to those needing inbound liquidity, and Faraday for node accounting and insights.",
+    "image_url": "https://raw.githubusercontent.com/lightninglabs/lightning-terminal/refs/tags/v0.16.0-alpha/app/public/icons/icon-512x512.png",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "client"
+    ]
+}

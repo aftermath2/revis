@@ -1,0 +1,13 @@
+{
+    "id": "lnd",
+    "title": "Lightning Network Daemon",
+    "content": "The Lightning Network Daemon (LND) is a full, open-source implementation of the Lightning Network developed by Lightning Labs. It enables instant, high-volume Bitcoin transactions off-chain using HTLC contracts. It supports multiple backends including Bitcoin Core, btcd and Neutrino, and implements all BOLT specifications for interoperability with other Lightning implementations.",
+    "image_url": "https://raw.githubusercontent.com/lightningnetwork/lnd/refs/tags/v0.20.0-beta/logo.png",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "implementation",
+        "lnd",
+        "lightning_labs"
+    ]
+}

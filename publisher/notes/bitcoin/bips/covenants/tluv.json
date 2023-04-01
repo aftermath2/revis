@@ -1,0 +1,11 @@
+{
+    "id": "tluv",
+    "title": "TLUV",
+    "content": "OP_TAPLEAF_UPDATE_VERIFY (TLUV) is an opcode that takes information about the taproot input being spent, makes modifications described in a tapscript, and requires that the result be equivalent to the scriptPubKey in the output in the same position as the input. Where it differs from previous proposals is that it allows the created tapscript to specify modifications to both the internal key and a tapscript tree (MAST).",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "covenant"
+    ]
+}

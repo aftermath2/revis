@@ -1,0 +1,11 @@
+{
+    "id": "txhash",
+    "title": "OP_TXHASH",
+    "content": "TXHASH allows the user to specify a range of individual bits of the spending transaction to be included in the transaction template.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "covenant"
+    ]
+}

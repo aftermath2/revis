@@ -1,0 +1,13 @@
+{
+    "id": "eclair",
+    "title": "Eclair",
+    "content": "Eclair is ACINQ's Scala-based Lightning Network implementation, designed for scalability and ease of integration into existing applications. Known for its robust performance and enterprise-grade reliability, Eclair powers the popular Phoenix and Acinq mobile Lightning wallets. The implementation features a modular architecture, support for various node deployment configurations, and comprehensive implementation of Lightning protocol specifications including advanced features like trampoline payments and multi-part payments. Eclair emphasizes security and has been instrumental in developing Lightning Network standards, contributing significantly to protocol improvements and interoperability between different implementations.",
+    "image_url": "https://raw.githubusercontent.com/ACINQ/eclair/refs/tags/v0.13.1/.readme/logo.png",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "implementation",
+        "eclair",
+        "acinq"
+    ]
+}

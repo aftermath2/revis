@@ -1,0 +1,11 @@
+{
+    "id": "samourai_wallet",
+    "title": "Samourai Wallet",
+    "content": "Samourai Wallet is a privacy-centric, open-source Android Bitcoin wallet that never re-uses addresses, always routes traffic through Tor, and bundles post-mix tools like Stonewall, StonewallX2, and Stowaway to create manual CoinJoin transactions that break deterministic links without a central coordinator.\n\n#freesamourai",
+    "image_url": "https://raw.githubusercontent.com/Samourai-Wallet/samourai-wallet-android/refs/tags/0.99.93/app/src/main/res/drawable/samourai_splash.png",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "software"
+    ]
+}

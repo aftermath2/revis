@@ -1,0 +1,11 @@
+{
+    "id": "op_checksigfromstack",
+    "title": "OP_CHECKSIGFROMSTACK",
+    "content": "OP_CHECKSIGFROMSTACK (OP_CSFS) is an opcode that allows checking whether a signature signs an arbitrary message. The opcode takes three parameters: a signature, a message, and a public key.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "covenant"
+    ]
+}

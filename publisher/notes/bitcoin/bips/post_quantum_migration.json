@@ -1,0 +1,11 @@
+{
+    "id": "post_quantum_migration",
+    "title": "Post Quantum Migration and Legacy Signature Sunset",
+    "content": "This proposal (BIP number to be defined) follows the implementation of post-quantum (PQ) signatures and introduces a pre-announced sunset of legacy ECDSA/Schnorr signatures. It turns quantum security into a private incentive: fail to upgrade and you will be unable to spend your funds, creating a certainty where none previously existed.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "soft_fork"
+    ]
+}

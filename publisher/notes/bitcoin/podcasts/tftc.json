@@ -1,0 +1,10 @@
+{
+    "id": "tftc_podcast",
+    "title": "TFTC Podcast",
+    "content": "TFTC (Truth for the Commoner) is a podcast dedicated to bringing content that spans the realms of bitcoin, economics, privacy, freedom technology, and culture.",
+    "image_url": "https://www.tftc.io/content/images/2023/12/TFTC_02_Black-2--1-.png",
+    "categories": [
+        "bitcoin",
+        "podcast"
+    ]
+}

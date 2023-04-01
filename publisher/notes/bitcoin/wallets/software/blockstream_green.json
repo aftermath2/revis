@@ -1,0 +1,12 @@
+{
+    "id": "blockstream_green_wallet",
+    "title": "Blockstream Green",
+    "content": "Blockstream Green is a non-custodial and cross-platform Bitcoin wallet developed by Blockstream.",
+    "image_url": "https://raw.githubusercontent.com/Blockstream/green_qt/ef68734f59375b35d9b0229234f65b11d2f5240d/assets/svg/green_logo.svg",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "software",
+        "blockstream"
+    ]
+}

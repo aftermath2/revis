@@ -1,0 +1,11 @@
+{
+    "id": "mastering_bitcoin",
+    "title": "Mastering Bitcoin: Programming the Open Blockchain",
+    "content": "Mastering Bitcoin is a comprehensive technical guide by Andreas Antonopoulos that serves as the definitive resource for developers, engineers, and technically-minded individuals seeking to understand Bitcoin's underlying architecture and protocol.",
+    "image_url": "https://raw.githubusercontent.com/bitcoinbook/bitcoinbook/refs/tags/third_edition_github/images/cover.png",
+    "categories": [
+        "book",
+        "bitcoin",
+        "andreas_antonopoulos"
+    ]
+}

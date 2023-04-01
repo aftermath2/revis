@@ -1,0 +1,1 @@
+export { default as usePagination, type Fetcher } from './usePagination';

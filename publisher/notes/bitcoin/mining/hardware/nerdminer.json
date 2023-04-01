@@ -1,0 +1,11 @@
+{
+    "id": "nerdminer-2023",
+    "title": "NerdMiner",
+    "content": "The NerdMiner is a pocket-sized, open-source miner that turns any ESP32 dev-kit into a 256 kH/s SHA-256 gadget purpose-built to learn more about minery.",
+    "image_url": "https://bitronics.com/storage/2023/04/IMG_20230815_231513-scaled.jpg",
+    "categories": [
+        "bitcoin",
+        "mining",
+        "hardware"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "id": "ocean_mining_pool",
+    "title": "Ocean Mining Pool",
+    "content": "Ocean is a decentralized Bitcoin mining pool that emphasizes transparency, decentralization, and supporting the Bitcoin ecosystem without collecting transaction fees from miners, instead distributing 100% of mining rewards to participants. The pool operates as a non-custodial mining service where block rewards are sent directly to miners without intermediaries, enhancing security and reducing trust requirements. Ocean implements innovative features including decentralized job negotiation, allowing miners to create their own block templates while still benefiting from pooled mining rewards.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "mining",
+        "pool",
+        "datum"
+    ]
+}

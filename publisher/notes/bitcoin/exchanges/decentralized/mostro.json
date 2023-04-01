@@ -1,0 +1,11 @@
+{
+    "id": "mostro",
+    "title": "Mostro",
+    "content": "Mostro is a Lightning Network peer-to-peer exchange that enables Bitcoin trading without custodial risk or KYC requirements. Built on the censorship-resistant Nostr protocol, Mostro provides a decentralized alternative to centralized exchanges and custodial platforms.",
+    "image_url": "https://mostro.network/assets/images/logo.svg",
+    "categories": [
+        "bitcoin",
+        "decentralized",
+        "exchange"
+    ]
+}

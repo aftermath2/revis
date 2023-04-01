@@ -1,0 +1,10 @@
+{
+    "id": "claude_sonnet_4_5",
+    "title": "Claude Sonnet 4.5",
+    "content": "Claude Sonnet 4.5 is an AI model trained by Anthropic that is designed for complex tasks in coding, finance, and cybersecurity, with improved reasoning and long-running task capabilities.",
+    "image_url": "",
+    "categories": [
+        "ai",
+        "llm"
+    ]
+}

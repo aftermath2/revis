@@ -1,0 +1,11 @@
+{
+    "id": "bark",
+    "title": "Bark",
+    "content": "Bark is a Rust implementation of the Ark protocol on bitcoin, led by second.tech. It includes an Ark wallet called \"bark\" and an Ark server called \"captaind\".",
+    "image_url": "https://gitlab.com/ark-bitcoin/bark/-/raw/server-0.1.0-beta.7/assets/bark-header-white.jpg",
+    "categories": [
+        "bitcoin",
+        "ark",
+        "implementation"
+    ]
+}

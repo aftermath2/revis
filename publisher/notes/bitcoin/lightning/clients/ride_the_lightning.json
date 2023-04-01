@@ -1,0 +1,11 @@
+{
+    "id": "ride_the_lightning",
+    "title": "Ride The Lightning",
+    "content": "Ride The Lightning is a full function, device agnostic, web user interface to help manage lightning node operations.",
+    "image_url": "https://pbs.twimg.com/profile_images/1362595482783080448/4zBJ1MFj_400x400.jpg",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "client"
+    ]
+}

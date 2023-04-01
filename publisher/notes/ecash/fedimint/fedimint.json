@@ -1,0 +1,10 @@
+{
+    "id": "fedimint",
+    "title": "Fedimint",
+    "content": "Fedimint is a federated mint structure that aims to lower the barrier to entry for self-custody and reduce third-party risk in bitcoin. It allows users to send and receive Ecash tokens that represent different denominations of sats with high privacy and availability.",
+    "image_url": "https://fedimint.org/assets/images/fedimint-icon-526ddfe641b4f71af1a74ee544dcc011.png",
+    "categories": [
+        "ecash",
+        "fedimint"
+    ]
+}

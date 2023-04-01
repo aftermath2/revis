@@ -1,0 +1,12 @@
+{
+    "id": "braiins_mining_pool",
+    "title": "Braiins Mining Pool",
+    "content": "Braiins Pool is the world's first Bitcoin mining pool, launched in 2010 by Marek 'Slush' Palatinus, and has mined over 1.25 million BTC since its inception. The pool introduced the concept of pooled mining, allowing individual miners to combine their hash power to earn more consistent rewards. Braiins operates on a score-based reward system and is known for its commitment to decentralization and Bitcoin-only focus. It is one of the few mining pools that has adopted the Stratum V2 protocol.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "mining",
+        "pool",
+        "stratum_v2"
+    ]
+}

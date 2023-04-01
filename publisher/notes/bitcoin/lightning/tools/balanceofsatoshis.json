@@ -1,0 +1,12 @@
+{
+    "id": "balanceofsatoshis",
+    "title": "Balance of Satoshis",
+    "content": "Balance of Satoshis (BoS) is a comprehensive CLI toolkit for LND node operators that provides advanced commands for liquidity management, channel balancing, accounting, fee optimization, and automated rebalancing.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "lnd",
+        "tool"
+    ]
+}

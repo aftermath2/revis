@@ -1,0 +1,13 @@
+{
+    "id": "wallet_of_satoshi_wallet",
+    "title": "Wallet of Satoshi",
+    "content": "Wallet of Satoshi is a self-custodial Bitcoin and Lightning wallet for iOS and Android focused on simplicity and user experience.",
+    "image_url": "https://www.walletofsatoshi.com/assets/images/wallet-logo.svg",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "wallet",
+        "mobile",
+        "custodial"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "coracle_social",
+    "title": "coracle.social",
+    "content": "Coracle is a web client for the Nostr protocol focused on pushing the boundaries of what's unique about nostr, including relay selection and management, web-of-trust based moderation and content recommendations, and privacy protection.",
+    "image_url": "https://raw.githubusercontent.com/coracle-social/coracle/refs/tags/0.6.28/public/images/logo.png",
+    "categories": [
+        "nostr",
+        "client",
+        "web"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "nodl",
+    "title": "Nodl",
+    "content": "nodl is a fully featured, plug-and-play Bitcoin and Lightning Network node designed for users who value privacy, control, and self-sovereignty. It serves as the always-on backend for the most popular Bitcoin and Lightning applications, empowering you to verify your own transactions, process payments, and participate in the network without relying on third parties.",
+    "image_url": "https://pbs.twimg.com/profile_images/1598335485121892354/94Zqc-lD_400x400.jpg",
+    "categories": [
+        "bitcoin",
+        "node",
+        "software"
+    ]
+}

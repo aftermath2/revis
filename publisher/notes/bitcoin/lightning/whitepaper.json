@@ -1,0 +1,11 @@
+{
+    "id": "lightning",
+    "title": "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments",
+    "content": "The Lightning Network whitepaper proposes a Layer 2 payment protocol that enables scalable off-chain instant payments through a network of micropayment channels. Users create direct payment channels by locking Bitcoin in multi-signature wallets on-chain, then conduct unlimited instant transactions off-chain. These channels connect to form a larger network, allowing payments to route through multiple intermediaries.\n\nThe system uses time-locked smart contracts to ensure funds can be recovered on-chain if needed. This approach addresses Bitcoin's scalability limitations by enabling millions of transactions per second, sub-second settlement times, and minimal fees while maintaining Bitcoin's security and decentralization.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "whitepaper"
+    ]
+}

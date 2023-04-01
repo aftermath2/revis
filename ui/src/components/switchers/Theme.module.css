@@ -1,0 +1,71 @@
+.themeSwitcher {
+    background: var(--btn-secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 8px 16px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: auto;
+}
+
+/* Ensure Material-UI icons inherit the button color */
+.themeSwitcher svg {
+    color: var(--text-secondary);
+    width: 18px;
+    height: 18px;
+    transition: color 0.2s ease;
+}
+
+.themeSwitcher:hover {
+    background: var(--btn-secondary-hover);
+    border-color: var(--border-dark);
+    transform: translateY(-1px);
+}
+
+.themeSwitcher:hover svg {
+    color: var(--primary-color);
+}
+
+.themeSwitcher:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.themeSwitcher:active {
+    transform: translateY(0);
+}
+
+/* Add theme text for better UX */
+.themeText {
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    margin-left: 4px;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .themeSwitcher {
+        padding: 6px 12px;
+        min-height: 36px;
+        font-size: 0.8em;
+    }
+
+    .themeSwitcher svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .themeText {
+        display: none;
+        /* Hide text on mobile to save space */
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "id": "circuit_breaker",
+    "title": "Circuit Breaker",
+    "content": "Circuit Breaker is a Lightning Network firewall for LND that protects nodes from HTLC flooding attacks by setting per-peer limits on in-flight HTLCs and applying rate limiting using a token bucket algorithm.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "lnd",
+        "tool"
+    ]
+}

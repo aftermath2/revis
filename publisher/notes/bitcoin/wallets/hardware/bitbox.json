@@ -1,0 +1,11 @@
+{
+    "id": "bitbox",
+    "title": "BitBox02",
+    "content": "The BitBox02 Bitcoin-only hardware wallet enables you to independently generate and securely store your private keys.",
+    "image_url": "https://bitbox.swiss/assets/images/products/bitbox02-bitcoin-only-cropped-1004x476-a40441c60d843dfde64cc2a97423a8e1.png",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "hardware"
+    ]
+}

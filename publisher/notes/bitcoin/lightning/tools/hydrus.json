@@ -1,0 +1,12 @@
+{
+    "id": "hydrus",
+    "title": "Hydrus",
+    "content": "Hydrus is a lightning liquidity management agent that automatically opens and closes channels based on real-time network analysis. It continuously evaluates the network graph in memory, scores nodes across multiple heuristics, and executes batched channel openings to optimize on-chain fees. The agent adjusts channel fees and HTLC limits dynamically to maximize routing efficiency and can be run in dry-run mode for risk-free evaluation. All operations are stateless, relying solely on the LND RPC API, and are configurable through extensive weighting options for each heuristic.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "lnd",
+        "tool"
+    ]
+}

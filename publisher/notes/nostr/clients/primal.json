@@ -1,0 +1,12 @@
+{
+    "id": "primal",
+    "title": "Primal",
+    "content": "Primal is a Nostr client featuring easy onboarding, and a fast and snappy UI. It lets you create and manage custom feeds, send direct messages, and more.",
+    "image_url": "https://raw.githubusercontent.com/PrimalHQ/primal-web-app/refs/tags/v0.77.19/public/public/primal-logo-large.png",
+    "categories": [
+        "nostr",
+        "client",
+        "mobile",
+        "web"
+    ]
+}

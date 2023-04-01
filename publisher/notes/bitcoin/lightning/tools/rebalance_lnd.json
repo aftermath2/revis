@@ -1,0 +1,12 @@
+{
+    "id": "rebalance_lnd",
+    "title": "Rebalance LND",
+    "content": "rebalance-lnd is a Python-based CLI tool that enables LND node operators to rebalance channel liquidity by sending funds through the Lightning Network and back to themselves. It automatically calculates optimal amounts to move funds between channels while maintaining safety checks for economic viability, supports random or specified channel selection, and more.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "lnd",
+        "tool"
+    ]
+}

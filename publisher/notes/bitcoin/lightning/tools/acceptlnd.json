@@ -1,0 +1,12 @@
+{
+    "id": "acceptlnd",
+    "title": "AcceptLND",
+    "content": "AcceptLND is an open-source policy engine for LND that automatically accepts or rejects incoming channel-opening requests according to configured rules.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "lightning",
+        "lnd",
+        "tool"
+    ]
+}

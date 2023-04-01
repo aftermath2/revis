@@ -1,0 +1,11 @@
+{
+    "id": "op_vault",
+    "title": "OP_VAULT",
+    "content": "OP_VAULT is a type of covenant that require two separate transactions to appear in two different blocks in order for a user to spend money from their wallet. The first transaction signals that someone is attempting to spend the money and gives the user a chance to block the second transaction that completes the spend.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "covenant"
+    ]
+}

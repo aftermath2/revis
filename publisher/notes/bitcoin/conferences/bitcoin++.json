@@ -1,0 +1,10 @@
+{
+    "id": "bitcoin++",
+    "title": "Bitcoin++",
+    "content": "bitcoin++ is a developer-focused conference series where heavy emphasis is placed on long form lectures and workshops, with smaller more-focused audiences who are excited to get deeper into the cutting edge of bitcoin tech.",
+    "image_url": "https://btcplusplus.dev/static/img/logo_blk.svg",
+    "categories": [
+        "bitcoin",
+        "conference"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "nerdoctaxe",
+    "title": "NerdOctaxe",
+    "content": "The NerdOctaxe is built on the foundation of the Bitaxe project but expands the architecture significantly with eight BM1370 ASIC chips, delivering up to 12 TH/s of hashrate.",
+    "image_url": "https://bitronics.com/storage/2025/05/150.png",
+    "categories": [
+        "bitcoin",
+        "mining",
+        "hardware",
+        "bitaxe",
+        "nerdaxe"
+    ]
+}

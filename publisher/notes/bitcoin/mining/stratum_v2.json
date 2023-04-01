@@ -1,0 +1,11 @@
+{
+    "id": "stratum_v2",
+    "title": "Stratum V2",
+    "content": "Stratum V2 is a communication protocol for Bitcoin mining that enables efficient communication between mining hardware and mining pools.\n\nA key decentralization feature is the Job Declaration Protocol, which allows miners to build their own block templates and choose which transactions to include, reducing pool operator control and improving censorship resistance.",
+    "image_url": "https://raw.githubusercontent.com/stratum-mining/stratumprotocol.org/refs/heads/main/public/assets/logo.png",
+    "categories": [
+        "bitcoin",
+        "mining",
+        "stratum_v2"
+    ]
+}

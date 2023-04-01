@@ -1,0 +1,797 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.dialog {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 520px;
+    width: 90%;
+    max-height: 90vh;
+    overflow: auto;
+    border: 1px solid var(--border-color);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.05) 0%, transparent 100%);
+}
+
+.header h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.closeButton:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
+    transform: scale(1.1);
+}
+
+.body {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.section {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    border-color: rgba(var(--primary-color-rgb), 0.3);
+    box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.08);
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.sectionHeader h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.backButton:hover {
+    background: rgba(var(--primary-color-rgb), 0.1);
+    transform: translateX(-2px);
+}
+
+.disconnectButton {
+    background: none;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    font-size: 0.85em;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.disconnectButton:hover {
+    background: var(--danger-color);
+    color: white;
+    transform: scale(1.02);
+}
+
+.activeOptionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.connectionStatus {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.1) 0%, rgba(var(--primary-color-rgb), 0.05) 100%);
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.15);
+    animation: connectionPulse 2s ease-in-out infinite;
+}
+
+@keyframes connectionPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.15);
+    }
+
+    50% {
+        box-shadow: 0 4px 16px rgba(var(--primary-color-rgb), 0.25);
+    }
+}
+
+.statusIcon {
+    font-size: 2em;
+    color: var(--primary-color);
+    background: var(--bg-dark);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(var(--primary-color-rgb), 0.2);
+}
+
+.statusContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.statusLabel {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.option {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.sectionDescription {
+    margin: 0 0 20px 0;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.optionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.9em;
+    margin-bottom: 4px;
+}
+
+.inputWithButton {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.privateKeyInputContainer {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.privateKeyInputContainer .formInput {
+    width: 100%;
+}
+
+.privateKeyInputContainer:has(.generateButton) .formInput {
+    padding-right: 48px;
+    /* Make room for the generate button */
+}
+
+.formInput {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-family: inherit;
+}
+
+.formInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.15);
+}
+
+.formInput::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+.generateButton {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+.generateButton svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.generateButton:hover {
+    color: var(--primary-color);
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.generateButton:active {
+    transform: translateY(-50%) scale(0.9) rotate(180deg);
+}
+
+.submitButton {
+    min-width: 100px;
+}
+
+.errorMessage {
+    color: var(--error-color);
+    font-size: 0.85em;
+    padding: 10px 14px;
+    background: var(--error-bg);
+    border: 1px solid var(--error-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-4px);
+    }
+
+    75% {
+        transform: translateX(4px);
+    }
+}
+
+.errorMessage::before {
+    content: '⚠';
+    font-size: 1.1em;
+}
+
+.divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 0;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--border-color) 50%, transparent 100%);
+}
+
+.dividerText {
+    position: relative;
+    background: var(--bg-secondary);
+    padding: 0 16px;
+    color: var(--text-secondary);
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.alternativeOption {
+    display: flex;
+    justify-content: center;
+}
+
+.openButton {
+    min-height: 44px;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.openButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .dialog {
+        width: calc(100% - 24px);
+        margin: 12px;
+        border-radius: 12px;
+        max-height: calc(100vh - 24px);
+    }
+
+    .header {
+        padding: 16px 20px;
+    }
+
+    .header h2 {
+        font-size: 1.2em;
+    }
+
+    .closeButton {
+        width: 28px;
+        height: 28px;
+        font-size: 24px;
+    }
+
+    .body {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .section {
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .sectionHeader h3 {
+        font-size: 1em;
+    }
+
+    .sectionDescription {
+        font-size: 0.85em;
+        margin-bottom: 16px;
+    }
+
+    .optionContainer {
+        gap: 16px;
+    }
+
+    .inputWithButton {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .privateKeyInputContainer {
+        width: 100%;
+    }
+
+    .privateKeyInputContainer:has(.generateButton) .formInput {
+        padding-right: 48px;
+    }
+
+    .formInput {
+        padding: 10px 14px;
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .generateButton {
+        padding: 8px;
+    }
+
+    .generateButton svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    .submitButton {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .openButton {
+        min-height: 48px;
+        font-size: 0.95em;
+    }
+
+    .label {
+        font-size: 0.85em;
+    }
+
+    .divider {
+        margin: 4px 0;
+    }
+
+    .dividerText {
+        font-size: 0.75em;
+        padding: 0 12px;
+    }
+
+    .errorMessage {
+        font-size: 0.8em;
+        padding: 8px 12px;
+    }
+
+    .backButton {
+        font-size: 0.85em;
+        padding: 5px 10px;
+    }
+
+    .disconnectButton {
+        font-size: 0.8em;
+        padding: 5px 12px;
+    }
+
+    .connectionStatus {
+        gap: 12px;
+        padding: 16px 18px;
+    }
+
+    .statusIcon {
+        font-size: 2em;
+        width: 50px;
+        height: 50px;
+    }
+
+    .statusLabel {
+        font-size: 1em;
+    }
+
+    .option {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 400px) {
+    .dialog {
+        width: calc(100% - 16px);
+        margin: 8px;
+        border-radius: 10px;
+        max-height: calc(100vh - 16px);
+    }
+
+    .header {
+        padding: 14px 16px;
+    }
+
+    .header h2 {
+        font-size: 1.1em;
+    }
+
+    .closeButton {
+        width: 26px;
+        height: 26px;
+        font-size: 22px;
+    }
+
+    .body {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .section {
+        padding: 14px;
+        border-radius: 8px;
+    }
+
+    .sectionHeader {
+        margin-bottom: 6px;
+    }
+
+    .sectionHeader h3 {
+        font-size: 0.95em;
+    }
+
+    .sectionDescription {
+        font-size: 0.8em;
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+
+    .optionContainer {
+        gap: 12px;
+    }
+
+    .inputGroup {
+        gap: 6px;
+    }
+
+    .label {
+        font-size: 0.8em;
+        margin-bottom: 2px;
+    }
+
+    .privateKeyInputContainer:has(.generateButton) .formInput {
+        padding: 9px 44px 9px 12px;
+    }
+
+    .formInput {
+        padding: 9px 12px;
+        font-size: 12px;
+        border-radius: 6px;
+        width: 100%;
+    }
+
+    .generateButton {
+        padding: 10px;
+    }
+
+    .generateButton svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    .submitButton {
+        padding: 9px 16px;
+        font-size: 0.9em;
+    }
+
+    .openButton {
+        min-height: 44px;
+        font-size: 0.9em;
+        gap: 8px;
+    }
+
+    .buttonGrid {
+        gap: 10px;
+    }
+
+    .gridButton {
+        min-height: 70px;
+        padding: 10px;
+        gap: 6px;
+    }
+
+    .buttonIcon {
+        font-size: 1.5em;
+    }
+
+    .buttonLabel {
+        font-size: 0.95em;
+    }
+
+    .buttonSubtext {
+        font-size: 0.7em;
+    }
+
+    .divider {
+        margin: 2px 0;
+    }
+
+    .dividerText {
+        font-size: 0.7em;
+        padding: 0 10px;
+    }
+
+    .errorMessage {
+        font-size: 0.75em;
+        padding: 7px 10px;
+    }
+
+    .errorMessage::before {
+        font-size: 1em;
+    }
+
+    .backButton {
+        font-size: 0.8em;
+        padding: 4px 8px;
+    }
+
+    .disconnectButton {
+        font-size: 0.75em;
+        padding: 4px 10px;
+    }
+
+    .activeOptionContainer {
+        padding: 12px;
+    }
+
+    .connectionStatus {
+        gap: 10px;
+        padding: 14px 16px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .statusIcon {
+        font-size: 1.8em;
+        width: 45px;
+        height: 45px;
+    }
+
+    .statusLabel {
+        font-size: 0.95em;
+    }
+
+    .option {
+        font-size: 0.75em;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .dialog {
+        width: calc(100% - 12px);
+        margin: 6px;
+        border-radius: 8px;
+        max-height: calc(100vh - 12px);
+    }
+
+    .header {
+        padding: 12px 14px;
+    }
+
+    .header h2 {
+        font-size: 1em;
+    }
+
+    .body {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .section {
+        padding: 12px;
+    }
+
+    .sectionHeader h3 {
+        font-size: 0.9em;
+    }
+
+    .sectionDescription {
+        font-size: 0.75em;
+        margin-bottom: 10px;
+    }
+
+    .privateKeyInputContainer:has(.generateButton) .formInput {
+        padding: 8px 42px 8px 10px;
+    }
+
+    .formInput {
+        padding: 8px 10px;
+        font-size: 11px;
+        width: 100%;
+    }
+
+    .generateButton svg {
+        width: 15px !important;
+        height: 15px !important;
+    }
+
+    .gridButton {
+        min-height: 65px;
+        padding: 8px;
+    }
+
+    .buttonIcon {
+        font-size: 1.4em;
+    }
+
+    .activeOptionContainer {
+        padding: 8px;
+    }
+
+    .connectionStatus {
+        gap: 8px;
+        padding: 12px 14px;
+    }
+
+    .statusIcon {
+        font-size: 1.6em;
+        width: 40px;
+        height: 40px;
+    }
+
+    .statusLabel {
+        font-size: 0.9em;
+    }
+
+    .option {
+        font-size: 0.7em;
+    }
+}

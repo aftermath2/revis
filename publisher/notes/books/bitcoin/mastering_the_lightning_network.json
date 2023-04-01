@@ -1,0 +1,12 @@
+{
+    "id": "mastering_the_lightning_network",
+    "title": "Mastering the Lightning Network",
+    "content": "This book authored by Andreas M. Antonopoulos, Olaoluwa Osuntokun and Rene Pickhardt describes the Lightning Network, a Peer-to-Peer protocol running on top of Bitcoin and other blockchains, which provides near-instant, secure, micro-payments.",
+    "image_url": "https://raw.githubusercontent.com/lnbook/lnbook/refs/tags/firstedition_firstprint/images/cover.png",
+    "categories": [
+        "book",
+        "bitcoin",
+        "lightning",
+        "andreas_antonopoulos"
+    ]
+}

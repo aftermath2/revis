@@ -1,0 +1,11 @@
+{
+    "id": "op_cat",
+    "title": "OP_CAT",
+    "content": "OP_CAT was originally an opcode in Bitcoin. It was disabled in 2010 but slight variations on it are frequently proposed to be added to Bitcoin using a soft fork.\n\nBoth the original OP_CAT and the new proposals for it concatenate two elements on the stack into a single element.\n\nThe primary expected use for OP_CAT is for data provided by the creator of a script to be concatenated with data provided by someone spending from that script.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "covenant"
+    ]
+}

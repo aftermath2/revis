@@ -1,0 +1,12 @@
+{
+    "id": "coldcard_q",
+    "title": "Coldcard Q",
+    "content": "The Coldcard Q is Coinkite's open-source Bitcoin hardware wallet that keeps your private keys permanently offline while letting you sign transactions with a simple tap or QR scan. Building on the original Coldcard Mk4, the Q adds a large color touchscreen, rechargeable battery, and fully air-gapped workflow so you can hold, spend, and verify without ever plugging into a computer.",
+    "image_url": "https://coldcard.com/static/images/image%2030.png",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "hardware",
+        "coinkite"
+    ]
+}

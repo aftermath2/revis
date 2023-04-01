@@ -1,0 +1,11 @@
+{
+    "id": "segwit",
+    "title": "SegWit",
+    "content": "Segregated Witness (abbreviated as SegWit) is an implemented protocol upgrade intended to provide protection from transaction malleability and increase block capacity by changing the structure of transactions.",
+    "image_url": "https://blockchainwelt.de/wp-content/uploads/2018/10/segwit-logo.png",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "soft_fork"
+    ]
+}

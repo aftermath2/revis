@@ -1,0 +1,11 @@
+{
+    "id": "passport_prime",
+    "title": "Passport Prime",
+    "content": "Passport Prime is Foundation Devices' second-generation, fully-air-gapped Bitcoin hardware wallet. It boasts a large color touchscreen and a smartphone-like user interface.",
+    "image_url": "https://thebitcoinhole.com/img/item-types/hardware-wallets/passport-prime.webp",
+    "categories": [
+        "bitcoin",
+        "wallet",
+        "hardware"
+    ]
+}

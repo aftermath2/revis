@@ -1,0 +1,11 @@
+{
+    "id": "op_ccv",
+    "title": "OP_CCV",
+    "content": "OP_CHECKCONTRACTVERIFY (OP_CCV) is a proposed opcode that enables a new primitive called state-carrying UTXOs. This primitive allows a UTXO to contain a commitment to data that can be introspected and computed upon in Script, with the resulting data embedded in the output UTXOs.\n\nTogether with an opcode that allows the creation of vector commitments, OP_CCV enables fraud proofs for arbitrary computations, widely extending the class of smart contracts that are possible in Script.",
+    "image_url": "",
+    "categories": [
+        "bitcoin",
+        "bip",
+        "covenant"
+    ]
+}
