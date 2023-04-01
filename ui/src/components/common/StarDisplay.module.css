@@ -1,0 +1,70 @@
+/* Star Display Component Styles */
+.starDisplay {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.starContainer {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.starBackground {
+    position: relative;
+    z-index: 1;
+}
+
+.starForeground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.star {
+    transition: all 0.2s ease;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+/* Star states */
+.starFilled {
+    color: var(--primary-color);
+    filter: drop-shadow(0 1px 2px rgba(var(--primary-color-rgb), 0.3));
+}
+
+.starEmpty {
+    color: #d1d5db;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+}
+
+/* Dark mode adjustments */
+:global(body.dark) .starEmpty {
+    color: #6b7280;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.1));
+}
+
+/* Size variants for the container */
+.starDisplaySmall {
+    gap: 3px;
+}
+
+.starDisplayMedium {
+    gap: 4px;
+}
+
+.starDisplayLarge {
+    gap: 5px;
+}

@@ -1,0 +1,59 @@
+/* Import color variables */
+@import './styles/colors.css';
+
+html {
+  background-color: var(--bg-secondary);
+  transition: background-color 0.2s ease;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Mobile optimizations */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  /* Theme transition - use consistent timing */
+  transition: background-color 0.2s ease, color 0.2s ease;
+  /* Use theme background color */
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Scrollbar styling for dark theme */
+body.dark *::-webkit-scrollbar {
+  background-color: #2a2a2a;
+}
+
+body.dark *::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+body.dark *::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Prevent zoom on input focus for iOS */
+@media screen and (max-width: 768px) {
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}

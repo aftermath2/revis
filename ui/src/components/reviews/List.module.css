@@ -1,0 +1,46 @@
+.container h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.2em;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+}
+
+.endMessage {
+    text-align: center;
+    padding: 20px 20px 0 20px;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+.endMessage p {
+    margin: 0;
+}
+
+.noReviews {
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.clickableReview {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.clickableReview:hover {
+    transform: translateY(-2px);
+}

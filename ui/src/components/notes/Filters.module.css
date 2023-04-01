@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
+.sortLabel {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.sortSelect {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-primary);
+    font-size: 0.9em;
+    color: var(--text-primary);
+    cursor: pointer;
+    min-width: 140px;
+    transition: all 0.2s ease;
+}
+
+.sortSelect:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin: 0 auto 16px auto;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .controls {
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .sortLabel {
+        font-size: 0.85em;
+        flex-shrink: 0;
+    }
+
+    .sortSelect {
+        min-width: 140px;
+        max-width: 200px;
+        padding: 8px 12px;
+        font-size: 0.9em;
+        box-sizing: border-box;
+    }
+
+    .divider {
+        margin: 0 auto 16px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        gap: 10px;
+        margin: 0 auto 12px auto;
+    }
+
+    .controls {
+        gap: 10px;
+    }
+
+    .sortLabel {
+        font-size: 0.8em;
+    }
+
+    .sortSelect {
+        padding: 6px 10px;
+        font-size: 0.85em;
+    }
+
+    .divider {
+        margin: 0 auto 12px auto;
+    }
+}

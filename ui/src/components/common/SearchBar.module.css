@@ -1,0 +1,120 @@
+.searchBar {
+    width: 100%;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.searchInputContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    padding: 0 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInputContainer:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+}
+
+.searchIcon {
+    color: var(--text-secondary);
+    margin-right: 8px;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.searchInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 14px;
+    padding: 12px 0;
+    font-family: inherit;
+}
+
+.searchInput::placeholder {
+    color: var(--text-secondary);
+}
+
+.searchClear {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px;
+    margin-left: 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.searchClear:hover {
+    color: var(--text-primary);
+    background-color: var(--hover-bg);
+}
+
+.searchClear svg {
+    font-size: 18px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .searchBar {
+        margin-bottom: 16px;
+        padding: 0;
+    }
+
+    .searchInputContainer {
+        padding: 0 16px;
+        min-height: 48px;
+    }
+
+    .searchInput {
+        font-size: 16px;
+        /* Prevent zoom on iOS */
+        padding: 14px 0;
+    }
+
+    .searchIcon {
+        font-size: 20px;
+        margin-right: 8px;
+    }
+
+    .searchClear {
+        padding: 8px;
+        margin-left: 8px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .searchClear svg {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .searchInputContainer {
+        padding: 0 12px;
+        min-height: 44px;
+    }
+
+    .searchInput {
+        padding: 12px 0;
+    }
+
+    .searchClear {
+        padding: 6px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+}

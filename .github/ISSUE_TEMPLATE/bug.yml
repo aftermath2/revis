@@ -1,0 +1,44 @@
+name: Item request
+description: File an item request.
+title: "Item creation request"
+labels: ["item", "request"]
+projects: ["revis"]
+assignees:
+  - aftermath2
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file this item request!
+  - type: input
+    id: title
+    attributes:
+      label: Item title
+      description: Item title
+      placeholder: Revis
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: Content
+      description: Item content
+      placeholder: Revis is an energy-backed decentralized reviewing platform...
+    validations:
+      required: true
+  - type: input
+    id: image-url
+    attributes:
+      label: Image URL
+      description: Image uniform resource locator
+      placeholder: https://...
+    validations:
+      required: false
+  - type: textarea
+    id: categories
+    attributes:
+      label: Categories
+      description: Item categories. Use a comma-separated list
+      placeholder: review, nostr, lightning, ...
+    validations:
+      required: true

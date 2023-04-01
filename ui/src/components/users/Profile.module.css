@@ -1,0 +1,502 @@
+.container {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Profile Header */
+.profileHeader {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.profileContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.settingsButton {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.settingsButton svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+}
+
+.settingsButton:hover {
+    color: var(--primary-color);
+    background: var(--background-hover);
+}
+
+.settingsButton:hover svg {
+    transform: rotate(45deg);
+}
+
+.settingsButton:active {
+    transform: scale(0.95);
+}
+
+.profileInfo {
+    width: 100%;
+    text-align: center;
+}
+
+.profileName {
+    margin: 0 0 8px 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--text-primary);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.profileDescription {
+    margin: 0 0 12px 0;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.profileStats {
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    justify-content: center;
+}
+
+.statItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.statItem strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.accountDetails {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.accountDetails .infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.accountDetails .infoItem label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.section {
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section h2,
+.sectionHeader h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.accountInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.infoItem label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.privateKeyContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.privateKey {
+    flex: 1;
+    padding: 12px 48px 12px 16px;
+    /* Extra padding on right for button */
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    word-break: break-all;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.copyButton {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.copyButton svg {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.copyButton:hover {
+    color: var(--primary-color);
+}
+
+.placeholder {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 40px 20px;
+    font-style: italic;
+}
+
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Enhanced Reviews Section */
+.sectionHeaderWithTabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sectionHeaderWithTabs h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.reviewsStats {
+    color: var(--text-secondary);
+    font-size: 0.85em;
+}
+
+.reviewsGrid {
+    display: grid;
+    gap: 16px;
+}
+
+.viewMoreWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.viewMoreButton {
+    width: 100%;
+    max-width: 300px;
+}
+
+.reviewCardWrapper {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 8px;
+}
+
+.reviewCardWrapper:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Votes Section */
+.votesStats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.voteStatItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+}
+
+.upvoteIcon {
+    color: var(--success-color);
+    font-size: 1.1rem !important;
+}
+
+.downvoteIcon {
+    color: var(--danger-color);
+    font-size: 1.1rem !important;
+}
+
+.totalIcon {
+    color: var(--warning-color);
+    font-size: 1.1rem !important;
+}
+
+.activityTypeIcon {
+    color: var(--text-secondary);
+    font-size: 1.4rem !important;
+}
+
+.voteDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.voteCounts {
+    display: flex;
+    gap: 12px;
+}
+
+.upvoteCount {
+    color: var(--success-color);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.downvoteCount {
+    color: var(--danger-color);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.clickable {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clickable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.clickable:active {
+    transform: translateY(0);
+}
+
+.votesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.voteItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+}
+
+.voteItem:hover {
+    border-color: var(--primary-color);
+}
+
+.voteType {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    flex-shrink: 0;
+}
+
+.voteContent {
+    flex: 1;
+}
+
+.voteTitle {
+    color: var(--text-primary);
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.voteDate {
+    color: var(--text-secondary);
+    font-size: 0.8em;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+
+    .profileHeader {
+        padding: 16px;
+    }
+
+    .profileContent {
+        gap: 16px;
+    }
+
+    .settingsButton {
+        top: 12px;
+        right: 12px;
+        padding: 6px;
+    }
+
+    .settingsButton svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .profileName {
+        font-size: 1.3em;
+        padding-right: 0;
+    }
+
+    .profileStats {
+        flex-direction: row;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .accountDetails {
+        margin-top: 12px;
+        padding-top: 12px;
+    }
+
+    .sectionHeaderWithTabs {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .votesStats {
+        align-self: stretch;
+        justify-content: space-around;
+        padding: 8px;
+        background: var(--bg-secondary);
+        border-radius: 6px;
+    }
+
+    .sectionHeader {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .sectionHeader h2 {
+        text-align: center;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .privateKey {
+        padding: 12px 52px 12px 12px;
+        /* More padding on right for small screens */
+        font-size: 0.8rem;
+    }
+
+    .copyButton {
+        right: 6px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .privateKey {
+        padding: 10px 56px 10px 10px;
+        /* Even more padding for tiny screens */
+        font-size: 0.75rem;
+    }
+
+    .copyButton {
+        right: 4px;
+        padding: 10px;
+    }
+
+    .copyButton svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+}

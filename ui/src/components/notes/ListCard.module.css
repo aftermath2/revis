@@ -1,0 +1,323 @@
+/* Feed Note Card - Simplified card view for the notes feed */
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 0;
+    margin: 0;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+}
+
+.image {
+    width: 160px;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--input-bg);
+    border-right: 1px solid var(--border-color);
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    display: block;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    min-width: 0;
+    gap: 16px;
+}
+
+/* Full width style for cards without images */
+.fullWidth {
+    padding: 20px 24px;
+}
+
+.contentLeft {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.contentRight {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.titleSection {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.noteTitle {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+    overflow: hidden;
+    font-size: 1.0em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.description {
+    padding-top: 0;
+    max-width: 95%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.description p {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+    line-height: 1.3;
+    margin: 0;
+    white-space: normal;
+}
+
+.votesDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    font-size: 0.75em;
+    font-weight: 500;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.voteItem {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.ratingItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.ratingNumbers {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ratingValue {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.reviewCount {
+    color: var(--text-secondary);
+    font-size: 1.05em;
+    font-weight: 400;
+    margin-left: 2px;
+}
+
+.weightIcon {
+    color: #f7931a;
+    margin-right: 4px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    font-size: 16px;
+}
+
+.voteCount {
+    font-size: 1.05em;
+    font-weight: 700;
+    margin-left: -2px;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1024px) {
+    .card {
+        height: auto;
+        min-height: 120px;
+    }
+
+    .main {
+        padding: 14px 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 0;
+        padding: 0;
+        height: auto;
+        min-height: 140px;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .image {
+        width: 100%;
+        max-width: 100%;
+        height: 120px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        box-sizing: border-box;
+    }
+
+    .main {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contentLeft {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .contentRight {
+        width: 100%;
+        max-width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .votesDisplay {
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .voteItem {
+        font-size: 0.85em;
+    }
+
+    .weightIcon {
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+    }
+
+    .noteTitle {
+        font-size: 1.0em;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .description {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .description p {
+        font-size: 0.9em;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .main {
+        padding: 12px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .noteTitle {
+        font-size: 0.95em;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .description p {
+        font-size: 0.85em;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .voteItem {
+        font-size: 0.8em;
+    }
+
+    .contentRight {
+        margin-top: 8px;
+        width: 100%;
+        max-width: 100%;
+    }
+}

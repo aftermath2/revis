@@ -1,0 +1,321 @@
+/* Sidebar specific styles extracted from App.module.css */
+.container {
+    width: 100%;
+    height: 100%;
+    background: var(--background-primary);
+    border: none;
+    border-right: 1px solid var(--border-color);
+    border-radius: 0;
+    padding: 20px 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+}
+
+.header {
+    margin-bottom: 10px;
+    padding: 0 12px 20px 12px;
+}
+
+.titleLink {
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: block;
+    pointer-events: auto;
+}
+
+.titleLink:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.titleLink h2 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    min-height: 0;
+    padding: 0 8px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 12px 20px 12px 12px;
+    margin: 0;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.navItem:hover {
+    background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.08);
+    color: var(--primary-light);
+    text-decoration: none;
+    transform: translateX(2px);
+}
+
+/* Provide explicit active class (previously relied on compound selector) */
+.active {
+    background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.12);
+    color: var(--primary-light);
+    font-weight: 600;
+}
+
+.active .navIcon svg {
+    color: var(--primary-light) !important;
+}
+
+.navItem:hover .navIcon svg {
+    color: var(--primary-light) !important;
+}
+
+.navIcon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.navIcon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--text-secondary);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 12px 0 12px;
+    flex-shrink: 0;
+}
+
+.loginHighlight {
+    font-weight: 600;
+    box-shadow: 0 3px 6px rgba(var(--primary-color-rgb, 59, 130, 246), 0.25);
+}
+
+.loginHighlight:hover {
+    background: linear-gradient(135deg, rgba(var(--primary-color-rgb, 59, 130, 246), 0.15), rgba(var(--primary-color-rgb, 59, 130, 246), 0.1));
+    border-color: rgba(var(--primary-color-rgb, 59, 130, 246), 0.4);
+    transform: translateX(2px) translateY(-1px);
+    box-shadow: 0 6px 12px rgba(var(--primary-color-rgb, 59, 130, 246), 0.3);
+}
+
+.loginHighlight .navIcon svg {
+    color: var(--primary-color);
+}
+
+/* Mobile responsiveness for sidebar */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        height: 60px;
+        background: rgba(var(--background-primary-rgb), 0.85);
+        border-right: none;
+        border-top: 1px solid var(--border-color);
+        border-bottom: none;
+        padding: 0;
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        height: 60px;
+        align-items: center;
+        padding: 0;
+    }
+
+    .header {
+        display: none;
+    }
+
+    .nav {
+        flex: 1;
+        flex-direction: row;
+        gap: 0;
+        padding: 0;
+        overflow: visible;
+        height: 100%;
+        align-items: center;
+    }
+
+    .navItem {
+        flex: 1;
+        margin: 0;
+        white-space: nowrap;
+        min-width: auto;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 4px;
+        text-align: center;
+        width: auto;
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        box-sizing: border-box;
+        height: 60px;
+        flex-direction: column;
+        gap: 2px;
+        font-size: 0.7em;
+        color: var(--text-secondary);
+        transition: all 0.2s ease;
+    }
+
+    .navItem span {
+        font-size: 0.75em;
+        font-weight: 500;
+    }
+
+    .navItem:hover {
+        background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.05);
+        color: var(--primary-color);
+        transform: none;
+    }
+
+    .navItem:hover .navIcon svg {
+        color: var(--primary-color);
+    }
+
+    .active {
+        background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.1);
+        color: var(--primary-color);
+    }
+
+    .active .navIcon svg {
+        color: var(--primary-color);
+    }
+
+    .navItem .navIcon {
+        margin-bottom: 2px;
+        margin-right: 0;
+        width: 24px;
+        height: 24px;
+    }
+
+    .navItem .navIcon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .controls {
+        display: none;
+    }
+
+    .loginHighlight {
+        background: var(--primary-color);
+        color: white !important;
+        border: none;
+        border-radius: 0;
+    }
+
+    .loginHighlight .navIcon svg {
+        color: white !important;
+    }
+
+    .loginHighlight:hover {
+        background: var(--primary-color-dark, var(--primary-color));
+        transform: none;
+        box-shadow: none;
+    }
+
+    .loginHighlight span {
+        color: white;
+    }
+
+    /* Long press animation for theme switching */
+    .longPressing {
+        background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.2) !important;
+        animation: longPressIndicator 1.5s ease-out forwards;
+        transform: scale(1.05);
+    }
+
+    @keyframes longPressIndicator {
+        0% {
+            background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.1);
+            transform: scale(1);
+        }
+
+        50% {
+            background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.15);
+            transform: scale(1.03);
+        }
+
+        100% {
+            background: rgba(var(--primary-color-rgb, 59, 130, 246), 0.3);
+            transform: scale(1.05);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 55px;
+    }
+
+    .content {
+        height: 55px;
+    }
+
+    .navItem {
+        padding: 6px 2px;
+        height: 55px;
+        font-size: 0.65em;
+    }
+
+    .navItem span {
+        font-size: 0.7em;
+    }
+
+    .navItem .navIcon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .navItem .navIcon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .controls {
+        display: none;
+    }
+}
