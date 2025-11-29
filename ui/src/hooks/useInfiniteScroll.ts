@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-const ROOT_MARGIN = '100px'
+const ROOT_MARGIN = '100px';
 
 interface UseInfiniteScrollReturn {
     isLoading: boolean;
@@ -8,21 +8,42 @@ interface UseInfiniteScrollReturn {
 }
 
 const useInfiniteScroll = (
-    callback: () => void,
+    callback: () => void | Promise<void>,
     hasMore: boolean,
 ): UseInfiniteScrollReturn => {
     const [isLoading, setIsLoading] = useState(false);
     const loadMoreRef = useRef<HTMLDivElement>(null);
+    const callbackRef = useRef(callback);
+    const hasMoreRef = useRef(hasMore);
+    const isLoadingRef = useRef(isLoading);
 
-    const onIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
-        const [entry] = entries;
-        if (entry.isIntersecting && hasMore && !isLoading) {
-            setIsLoading(true);
-        }
-    }, [hasMore, isLoading]);
+    // Keep refs in sync with latest values
+    useEffect(() => {
+        callbackRef.current = callback;
+    }, [callback]);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(onIntersection, {
+        hasMoreRef.current = hasMore;
+    }, [hasMore]);
+
+    useEffect(() => {
+        isLoadingRef.current = isLoading;
+    }, [isLoading]);
+
+    const onIntersection = useCallback(async (entries: IntersectionObserverEntry[]) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && hasMoreRef.current && !isLoadingRef.current) {
+            setIsLoading(true);
+            try {
+                await callbackRef.current();
+            } finally {
+                setIsLoading(false);
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(() => onIntersection, {
             rootMargin: ROOT_MARGIN,
             threshold: 0.1
         });
@@ -38,13 +59,7 @@ const useInfiniteScroll = (
             }
             observer.disconnect();
         };
-    }, [onIntersection, ROOT_MARGIN]);
-
-    useEffect(() => {
-        if (!isLoading) return;
-        callback();
-        setIsLoading(false);
-    }, [isLoading, callback]);
+    }, [onIntersection]);
 
     return { isLoading, loadMoreRef };
 };

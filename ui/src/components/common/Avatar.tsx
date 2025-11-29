@@ -5,7 +5,7 @@ import styles from './Avatar.module.css';
 const DEFAULT_AVATAR = '/default_avatar.jpg';
 
 interface AvatarProps {
-    username: string;
+    publicKey: string;
     url?: string;
     width?: string
 }
@@ -18,13 +18,13 @@ const Avatar = (props: AvatarProps) => {
     };
 
     const onUserClick = () => {
-        navigate(`/users/${encodeURIComponent(props.username)}`);
+        navigate(`/users/${encodeURIComponent(props.publicKey)}`);
     };
 
     return (
         <img
             src={props.url || DEFAULT_AVATAR}
-            alt={props.username}
+            alt={props.publicKey}
             className={styles.avatar}
             style={{ width: props.width, height: props.width }}
             onError={onImageError}

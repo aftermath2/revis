@@ -47,10 +47,10 @@ func (c *client) NewEvent(note Note) (nostr.Event, error) {
 		{"d", note.ID},
 		{"title", note.Title},
 		{"image", note.ImageURL},
-		{"publishedAt", now.Time().String()},
+		{"published_at", now.Time().String()},
 	}
 
-	for _, category := range note.Categories {
+	for _, category := range note.Tags {
 		tags = append(tags, nostr.Tag{"t", category})
 	}
 

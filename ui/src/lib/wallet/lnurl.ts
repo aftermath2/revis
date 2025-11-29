@@ -1,5 +1,6 @@
 import { LightningAddress } from '@getalby/lightning-tools';
-import { EventTemplate } from 'nostr-tools';
+import { type EventTemplate } from 'nostr-tools';
+import { REVIS_LNURL_ADDRESS } from '../constants';
 
 type ZapParams = {
     amount: string;
@@ -10,7 +11,7 @@ class LNURLClient {
     private client: LightningAddress;
 
     constructor() {
-        this.client = new LightningAddress(process.env.REACT_APP_LNURL_ADDRESS || '', {proxy: false});
+        this.client = new LightningAddress(REVIS_LNURL_ADDRESS || '', {proxy: false});
     }
 
     async init() {

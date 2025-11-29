@@ -2,55 +2,75 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { OfflineBolt } from '@mui/icons-material';
 
-import { Note, Review, Zap } from '../../lib/types';
-import { sampleNotes } from '../../data/sampleData';
+import { type Note, type Review, type Zap } from '../../lib/types';
 import { ReviewCard, ZapCard } from '.';
 import { Button } from '../common';
 import { useNostrContext } from '../../contexts';
+import { ITEMS_PER_LOAD } from '../../lib/constants';
+import { type NostrEvent } from 'nostr-tools';
 import styles from './Detail.module.css';
 
 const ReviewDetail = () => {
-    const { noteID, reviewId } = useParams<{ noteID: string; reviewId: string }>();
-    const navigate = useNavigate();
     const { nostrClient } = useNostrContext();
-    const [note, setNote] = useState<Note | null>(null);
-    const [review, setReview] = useState<Review | null>(null);
+    const navigate = useNavigate();
+    const { reviewID } = useParams<{ reviewID: string }>();
+
+    const [review, setReview] = useState<Review>();
+    const [reviewEvent, setReviewEvent] = useState<NostrEvent>();
+    const [note, setNote] = useState<Note>();
+    const [zaps, setZaps] = useState<Zap[]>([]);
 
     useEffect(() => {
-        const foundNote = sampleNotes.find(n => n.id === noteID);
-        if (foundNote) {
-            setNote(foundNote);
-            const foundReview = foundNote.reviews?.find(r => r.id === reviewId);
-            setReview(foundReview || null);
+        async function loadReview() {
+            if (!reviewID) throw new Error("reviewID not provided");
+    
+            const [reviewObj, reviewEvent] = await nostrClient.getReview(reviewID);
+            setReview(reviewObj);
+            setReviewEvent(reviewEvent)
         }
-    }, [noteID, reviewId]);
+
+        async function loadNote() {
+            const [note] = await nostrClient.getNote(review?.noteID || "");
+            setNote(note);
+        }
+
+        async function loadZaps() {
+            if (!reviewID) throw new Error("reviewID not provided");
+
+            const zapList = await nostrClient.listZaps(reviewID, ITEMS_PER_LOAD);
+            zapList.sort((a, b) => b.createdAt - a.createdAt);
+            setZaps(zapList);
+        }
+
+        void loadReview();
+        void loadNote();
+        void loadZaps();
+    });
 
     const onZapSubmit = async (reviewID: string, amount: number, comment?: string) => {
+        if (!reviewEvent) throw new Error("Review event not found");
+
+        const zapRequest = await nostrClient.createZapRequest(reviewEvent, amount, comment);
+        await nostrClient.publish(zapRequest);
+
         const zap: Zap = {
             id: Date.now().toString(),
             eventID: reviewID,
-            username: await nostrClient.getSigner()?.getPublicKey() || 'Anonymous',
-            avatar: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&s=40',
+            authorPublicKey: await nostrClient.getSigner()?.getPublicKey() || "Anonymous",
+            recipient: review?.authorPublicKey || "",
             amount: amount,
             comment: comment,
-            timestamp: new Date().toISOString()
+            createdAt: Date.now()
         };
-
-        // Update the review with the new zap
-        if (review) {
-            const updatedReview = {
-                ...review,
-                zaps: [...(review.zaps || []), zap]
-            };
-            setReview(updatedReview);
-        }
+        // Add the zap to the top of the list
+        setZaps([...[zap], ...zaps]);
     };
 
     const onNoteClick = () => {
-        navigate(`/notes/${noteID}`);
+        void navigate(`/notes/${review?.noteID}`);
     };
 
-    if (!note || !review) {
+    if (!review) {
         return (
             <div className={styles.container}>
                 <div className={styles.notFound}>
@@ -58,7 +78,7 @@ const ReviewDetail = () => {
                     <p>The review you're looking for doesn't exist or has been removed.</p>
                     <Button
                         variant="secondary"
-                        onClick={() => navigate('/')}
+                        onClick={() => void navigate('/')}
                     >
                         Go Home
                     </Button>
@@ -77,7 +97,7 @@ const ReviewDetail = () => {
                             className={styles.noteTitle}
                             onClick={onNoteClick}
                         >
-                            {note.title}
+                            {note?.title}
                         </span>
                     </div>
                 </div>
@@ -102,18 +122,13 @@ const ReviewDetail = () => {
                 </div>
             </div>
 
-            {review.zaps && review.zaps.length > 0 && (
+            {zaps && zaps.length > 0 && (
                 <div className={styles.zapsSection}>
                     <div className={styles.zapsSectionHeader}>
                         <h3>Zaps</h3>
                     </div>
                     <div className={styles.zapsList}>
-                        {[...review.zaps]
-                            .sort((a, b) => {
-                                const aTime = new Date(a.timestamp).getTime();
-                                const bTime = new Date(b.timestamp).getTime();
-                                return bTime - aTime; // Newest first
-                            })
+                        {zaps
                             .map((zap) => (
                                 <ZapCard key={zap.id} zap={zap} />
                             ))}

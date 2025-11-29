@@ -42,12 +42,15 @@ const LoginDialog = (props: LoginDialogProps) => {
     const [nwcString, setNWCString] = useState('');
     const [nwcStringError, setNWCStringError] = useState('');
 
-    const onGenerateKey = () => {
+    const onGenerateKey = async () => {
         nostrClient.setSigner(SignerType.KEY);
-        // TODO: get private key from key signer to display in the input box and profile
-        const newKey = generateKey();
-        setPrivateKey(newKey);
-        setError('');
+        const nsec = await nostrClient.getSigner()?.getPrivateKey();
+        if (nsec) {
+            setPrivateKey(nsec);
+            setError('');
+        } else {
+            setError('Couldn\'t generate private key');
+        }
     };
 
     const onPrivateKeySubmit = (e: React.FormEvent) => {
@@ -148,9 +151,9 @@ const LoginDialog = (props: LoginDialogProps) => {
                             </p>
                         )}
 
-                        {nostrClient.getSignerType() === SignerType.KEY ? (
+                        {nostrClient.getSigner()?.getType() === SignerType.KEY ? (
                             <ActiveOption option='Private key' />
-                        ) : nostrClient.getSignerType() === SignerType.EXTENSION ? (
+                        ) : nostrClient.getSigner()?.getType() === SignerType.EXTENSION ? (
                             <ActiveOption option='Browser extension' />
                         ) : (
                             <form onSubmit={onPrivateKeySubmit} className={styles.optionContainer}>

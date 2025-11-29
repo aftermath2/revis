@@ -1,76 +1,58 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckIcon from '@mui/icons-material/Check';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-import { sampleNotes } from '../../data/sampleData';
-import { Review } from '../../lib/types';
+import { type Review } from '../../lib/types';
 import { formatNumber } from '../../lib/zapUtils';
-import { useNostrContext } from '../../contexts';
+import { useNostrContext, useUserContext } from '../../contexts';
 import { ReviewsList } from '../reviews';
 import { Avatar, Button } from '../common';
 import styles from './Profile.module.css';
-import { SignerType } from '../../lib/nostr/nostr';
+import { SignerType, type UserMetadata } from '../../lib/nostr/nostr';
+import { ITEMS_PER_LOAD } from '../../lib/constants';
 
 const Profile = () => {
-    const { nostrClient, setShowLoginModal } = useNostrContext();
-    const [isCopied, setIsCopied] = useState(false);
+    const { nostrClient } = useNostrContext();
+    const { user, setShowLoginModal } = useUserContext();
+    const { publicKey } = useParams<{ publicKey: string }>();
     const navigate = useNavigate();
-    const { username } = useParams<{ username: string }>();
+    
+    const [userMetadata, setUserMetadata] = useState<UserMetadata>();
+    const [isCopied, setIsCopied] = useState(false);
+    const [isCurrentUser] = useState(user.publicKey === publicKey);
+    const [reviews, setReviews] = useState<Review[]>([])
 
-    const isCurrentUser = !username; // If no username param, it's current user's profile
-    const displayUsername = username || 'You';
-    // TODO: get from nostrClient.signer
-    let privateKey = '';
-
-    // Mask the private key with asterisks
-    const maskedPrivateKey = useMemo(() => {
-        if (!privateKey) return '';
-        return '•'.repeat(privateKey.length);
-    }, [privateKey]);
-
-    // Only show private key if authenticated with privateKey method
-    const shouldShowPrivateKey = nostrClient.getSignerType() === SignerType.KEY && privateKey;
-
-    // Get user's reviews from all notes
-    const userReviews = useMemo(() => {
-        const reviews: Review[] = [];
-        sampleNotes.forEach(note => {
-            if (note.reviews) {
-                note.reviews.forEach(review => {
-                    if (review.author === username) {
-                        reviews.push(review);
-                    }
-                });
+    useEffect(() => {
+        async function loadUser() {
+            if (isCurrentUser) {
+                setUserMetadata(user.metadata)
+            } else {
+                setUserMetadata(await nostrClient.getUserMetadata(publicKey || ''))
             }
-        });
-        return reviews.sort((a, b) => {
-            if (!a.createdAt || !b.createdAt) return 0;
-            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-        });
-    }, [username]);
+        }
 
-    // Limit displayed reviews to 3
-    const displayedReviews = userReviews.slice(0, 3);
-    const hasMoreReviews = userReviews.length > 3;
+        void loadUser();
+    })
 
-    // Get user's avatar (use first available avatar from their reviews)
-    const userAvatar = userReviews.find(review => review.avatar)?.avatar;
+    const userReviews = useCallback(async () => {
+        if (!publicKey) throw new Error("publicKey not provided")
+
+        const reviews = await nostrClient.listUserReviews(publicKey, ITEMS_PER_LOAD+1);
+        // Sort from newest to oldest
+        const sortedReviews = reviews.sort((a, b) => b.createdAt - a.createdAt);
+        setReviews(sortedReviews);
+    }, [publicKey, nostrClient]);
+
+    const showPrivateKey = nostrClient.getSigner()?.getType() === SignerType.KEY && user?.privateKey;
 
     const onReviewClick = (reviewID: string) => {
-        // Find which note contains this review
-        // TODO: review item will have the note ID, no need to search for it
-        const noteWithReview = sampleNotes.find(note =>
-            note.reviews?.some(review => review.id === reviewID)
-        );
-        if (noteWithReview) {
-            navigate(`/notes/${noteWithReview.id}/reviews/${reviewID}`);
-        }
+        void navigate(`/reviews/${reviewID}`);
     };
 
     const onViewMoreReviews = () => {
-        navigate(`/users/${username}/reviews`);
+        void navigate(`/users/${publicKey}/reviews`);
     };
 
     const onOpenSettings = () => {
@@ -78,13 +60,14 @@ const Profile = () => {
     };
 
     const onCopyPrivateKey = async () => {
-        if (privateKey) {
+        if (user?.privateKey) {
             try {
-                await navigator.clipboard.writeText(privateKey);
+                await navigator.clipboard.writeText(user?.privateKey);
                 setIsCopied(true);
                 setTimeout(() => setIsCopied(false), 2000);
             } catch (err) {
-                throw new Error('Failed to copy to clipboard: ' + err);
+                // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                throw new Error(`Failed to copy to clipboard: ${err}`);
             }
         }
     };
@@ -92,27 +75,26 @@ const Profile = () => {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                {/* Header with Account Details */}
                 <div className={styles.profileHeader}>
                     {isCurrentUser && (
                         <button
                             className={styles.settingsButton}
                             onClick={onOpenSettings}
-                            title="Account Settings"
-                            aria-label="Account Settings"
+                            title='Account Settings'
+                            aria-label='Account Settings'
                         >
                             <SettingsIcon />
                         </button>
                     )}
                     <div className={styles.profileContent}>
                         <Avatar 
-                            username={displayUsername}
-                            url={userAvatar}
+                            publicKey={publicKey || ''}
+                            url={userMetadata?.picture}
                             width='120px'
                         />
                         <div className={styles.profileInfo}>
-                            <h1 className={styles.profileName}>{displayUsername}</h1>
-                            <p className={styles.profileDescription}>User description</p>
+                            <h1 className={styles.profileName}>{isCurrentUser ? 'You' : userMetadata?.name}</h1>
+                            <p className={styles.profileDescription}>{userMetadata?.about}</p>
                             <div className={styles.profileStats}>
                                 <span className={styles.statItem}>
                                     <strong>{formatNumber(userReviews.length)}</strong> review{userReviews.length !== 1 ? 's' : ''}
@@ -120,16 +102,16 @@ const Profile = () => {
                             </div>
                         </div>
 
-                        {isCurrentUser && shouldShowPrivateKey && (
+                        {isCurrentUser && showPrivateKey && (
                             <div className={styles.accountDetails}>
                                 <div className={styles.infoItem}>
                                     <label>Private Key:</label>
                                     <div className={styles.privateKeyContainer}>
                                         <div className={styles.privateKey}>
-                                            {maskedPrivateKey}
+                                            {'•'.repeat(10)}
                                             <button
                                                 className={styles.copyButton}
-                                                onClick={onCopyPrivateKey}
+                                                onClick={void onCopyPrivateKey}
                                                 title={isCopied ? 'Copied!' : 'Copy private key to clipboard'}
                                             >
                                                 {isCopied ? <CheckIcon /> : <ContentCopyIcon />}
@@ -144,15 +126,14 @@ const Profile = () => {
 
                 <div className={styles.section}>
                     <ReviewsList
-                        reviews={displayedReviews}
-                        title="Reviews"
+                        reviews={reviews}
                         emptyMessage={isCurrentUser
                             ? 'Your reviews will appear here once you start writing them.'
-                            : `${displayUsername} hasn't written any reviews yet.`
+                            : `${userMetadata?.name} hasn't written any reviews yet.`
                         }
                         onReviewClick={onReviewClick}
                     />
-                    {hasMoreReviews && (
+                    {reviews.length > ITEMS_PER_LOAD && (
                         <div className={styles.viewMoreWrapper}>
                             <Button
                                 variant='secondary'

@@ -1,23 +1,26 @@
 .fallback {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 200px;
     padding: 40px 20px;
-    background: var(--card-bg);
-    border-radius: 12px;
-    border: 1px solid var(--error-border, #fecaca);
-    margin: 20px;
-    width: calc(100% - 40px);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    background: var(--background-primary);
+    z-index: 9999;
 }
 
 .content {
     text-align: center;
-    max-width: 400px;
+    max-width: 600px;
     width: 100%;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--error-border, #fecaca);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .icon {
@@ -56,38 +59,25 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: none;
+    border: 1px solid var(--border-color);
     outline: none;
     min-width: 100px;
     min-height: 44px;
-}
-
-.btnPrimary {
-    background: var(--primary-color);
-    color: var(--btn-primary-text);
-}
-
-.btnPrimary:hover {
-    background: var(--primary-hover);
-    transform: translateY(-1px);
-}
-
-.btnSecondary {
     background: var(--btn-secondary-bg);
     color: var(--text-primary);
-    border: 1px solid var(--border-color);
 }
 
-.btnSecondary:hover {
+.btn:hover {
     background: var(--btn-secondary-hover);
 }
 
 @media (max-width: 768px) {
     .fallback {
-        margin: 10px;
-        width: calc(100% - 20px);
-        padding: 24px 16px;
-        min-height: 150px;
+        padding: 20px;
+    }
+
+    .content {
+        padding: 32px 20px;
     }
 
     .title {
@@ -109,7 +99,7 @@
     }
 }
 
-body.dark .fallback {
+body.dark .content {
     background: var(--card-bg);
     border-color: var(--error-border, #7f1d1d);
 }

@@ -1,4 +1,4 @@
-.loadingSpinner {
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,7 +8,7 @@
     animation: pulse 2s ease-in-out infinite;
 }
 
-.spinnerIcon {
+.icon {
     width: 40px;
     height: 40px;
     border: 3px solid var(--border-light);
@@ -17,36 +17,36 @@
     animation: spin 1s linear infinite;
 }
 
-.spinnerMessage {
+.message {
     color: var(--text-secondary);
     font-size: 0.9em;
     font-weight: 500;
     text-align: center;
 }
 
-.spinnerSmall .spinnerIcon {
+.small .icon {
     width: 24px;
     height: 24px;
     border-width: 2px;
 }
 
-.spinnerSmall .spinnerMessage {
+.small .message {
     font-size: 0.8em;
 }
 
-.spinnerMedium .spinnerIcon {
+.medium .icon {
     width: 40px;
     height: 40px;
     border-width: 3px;
 }
 
-.spinnerLarge .spinnerIcon {
+.large .icon {
     width: 56px;
     height: 56px;
     border-width: 4px;
 }
 
-.spinnerLarge .spinnerMessage {
+.large .message {
     font-size: 1em;
 }
 
@@ -61,7 +61,6 @@
 }
 
 @keyframes pulse {
-
     0%,
     100% {
         opacity: 1;

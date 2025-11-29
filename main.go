@@ -34,6 +34,7 @@ func main() {
 	}
 	defer indexer.Close()
 
+	// TODO: load notes
 	for _, note := range []nostr.Note{} {
 		event, err := client.NewEvent(note)
 		if err != nil {

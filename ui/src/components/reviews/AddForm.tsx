@@ -1,18 +1,20 @@
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState, type FormEvent, type ChangeEvent } from 'react';
 
 import { Button, StarRatingInput } from '../common';
-import { Review } from '../../lib/types';
+import { type Review } from '../../lib/types';
 import { formatNumber } from '../../lib/zapUtils';
-import { useNostrContext } from '../../contexts';
+import { useNostrContext, useUserContext } from '../../contexts';
 import styles from './AddForm.module.css';
 
 interface AddReviewProps {
-    onAddReview: (review: Review) => void;
+    noteID: string,
+    onAddReview: (review: Review) => Promise<void>;
     onCancel: () => void;
 }
 
 const AddReviewForm = (props: AddReviewProps) => {
-    const { nostrClient, setShowLoginModal } = useNostrContext();
+    const { nostrClient } = useNostrContext();
+    const { setShowLoginModal } = useUserContext();
 
     const [zapAmount, setZapAmount] = useState<number>(1);
     const [rating, setRating] = useState<number>(3);
@@ -61,26 +63,23 @@ const AddReviewForm = (props: AddReviewProps) => {
         // Clear previous validation errors
         setValidationError('');
 
-
         if (comment.length === 0) {
             setValidationError('Review comment cannot be empty');
             return;
         }
 
-        // TODO: generate ID
         const reviewID = Date.now().toString();
         const newReview: Review = {
             id: reviewID,
-            author: await nostrClient.getSigner()?.getPublicKey() || 'Anon',
+            noteID: props.noteID,
+            authorPublicKey: await nostrClient.getSigner()?.getPublicKey() || 'Anon',
             comment: comment,
-            createdAt: new Date().toISOString(),
+            createdAt: Date.now(),
             rating: rating,
             zapAmount: zapAmount
         };
 
-        props.onAddReview(newReview);
-
-        // TODO: publish review
+        await props.onAddReview(newReview);
 
         // Reset form
         setComment('');
@@ -103,7 +102,7 @@ const AddReviewForm = (props: AddReviewProps) => {
                 <h3>Add Review</h3>
             </div>
 
-            <form className={styles.createReviewForm} onSubmit={onSubmit}>
+            <form className={styles.createReviewForm} onSubmit={void onSubmit}>
                 <div className={styles.zapRatingSection}>
                     <div className={styles.ratingContainer}>
                         <div className={styles.sectionHeader}>

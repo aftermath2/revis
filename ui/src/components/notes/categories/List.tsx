@@ -1,7 +1,8 @@
 import { useMemo, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Note } from '../../../lib/types';
+import { type Note } from '../../../lib/types';
+import { getCategoryName } from '../../../lib/categories';
 import { sampleNotes, sampleCategories } from '../../../data/sampleData';
 import { LoadingSpinner, SearchBar } from '../../common';
 import { useInfiniteScroll } from '../../../hooks';
@@ -12,6 +13,10 @@ const CategoriesList = () => {
     const [notes] = useState<Note[]>(sampleNotes);
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [displayedCount, setDisplayedCount] = useState<number>(ITEMS_PER_LOAD);
+
+    const getLevel = (path: string): number => {
+        return path.split('/').length - 1;
+    };
 
     // Calculate actual note counts for categories
     const categoriesWithCounts = useMemo(() => {
@@ -33,14 +38,17 @@ const CategoriesList = () => {
 
         return sampleCategories.map(category => ({
             ...category,
-            actualNoteCount: categoryNoteCounts.get(category.path) || 0
+            actualNoteCount: categoryNoteCounts.get(category.path) || 0,
+            displayName: getCategoryName(category.path),
+            level: getLevel(category.path)
         }));
     }, [notes]);
 
     // Get all categories in a flat list, sorted by note count
+    // Only show root-level categories (level 0)
     const allCategories = useMemo(() => {
         return categoriesWithCounts
-            .filter(category => category.actualNoteCount > 0)
+            .filter(category => category.actualNoteCount > 0 && category.level === 0)
             .sort((a, b) => b.actualNoteCount - a.actualNoteCount);
     }, [categoriesWithCounts]);
 
@@ -51,7 +59,7 @@ const CategoriesList = () => {
         }
 
         return allCategories.filter(category =>
-            category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            category.displayName.toLowerCase().includes(searchQuery.toLowerCase()) ||
             category.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
             category.path.toLowerCase().includes(searchQuery.toLowerCase())
         );
@@ -88,7 +96,7 @@ const CategoriesList = () => {
                             className={styles.card}
                         >
                             <div className={styles.info}>
-                                <h3 className={styles.name}>{category.name}</h3>
+                                <h3 className={styles.name}>{category.displayName}</h3>
                                 {category.description && (
                                     <p className={styles.description}>{category.description}</p>
                                 )}

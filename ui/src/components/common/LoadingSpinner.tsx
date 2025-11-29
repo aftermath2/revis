@@ -7,15 +7,15 @@ interface LoadingSpinnerProps {
 
 const LoadingSpinner = (props: LoadingSpinnerProps) => {
     const sizeClasses = {
-        small: styles.spinnerSmall,
-        medium: styles.spinnerMedium,
-        large: styles.spinnerLarge
+        small: styles.small,
+        medium: styles.medium,
+        large: styles.large
     };
 
     return (
-        <div className={`${styles.loadingSpinner} ${sizeClasses[props.size || 'medium']}`}>
-            <div className={styles.spinnerIcon}></div>
-            <span className={styles.spinnerMessage}>
+        <div className={`${styles.container} ${sizeClasses[props.size || 'medium']}`}>
+            <div className={styles.icon}></div>
+            <span className={styles.message}>
                 {props.message || 'Loading...'}
             </span>
         </div>

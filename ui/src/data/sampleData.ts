@@ -1,283 +1,144 @@
 // Sample data for demonstration
-import { Note, Category } from '../lib/types';
+import { type Note, type Category } from '../lib/types';
 
 // Hierarchical category structure
 export const sampleCategories: Category[] = [
-    // Programming (Root)
+    // Programming
     {
         id: 'programming',
-        name: 'Programming',
-        slug: 'programming',
-        description: 'Software development and programming topics',
         path: 'programming',
-        level: 0
+        description: 'Software development and programming topics'
     },
-    // Programming -> Languages
     {
         id: 'programming-languages',
-        name: 'Languages',
-        slug: 'languages',
-        description: 'Programming languages and syntax',
-        parentId: 'programming',
         path: 'programming/languages',
-        level: 1
+        description: 'Programming languages and syntax'
     },
     {
         id: 'programming-languages-javascript',
-        name: 'JavaScript',
-        slug: 'javascript',
-        description: 'JavaScript language and ecosystem',
-        parentId: 'programming-languages',
         path: 'programming/languages/javascript',
-        level: 2
+        description: 'JavaScript language and ecosystem'
     },
     {
         id: 'programming-languages-python',
-        name: 'Python',
-        slug: 'python',
-        description: 'Python language and libraries',
-        parentId: 'programming-languages',
         path: 'programming/languages/python',
-        level: 2
+        description: 'Python language and libraries'
     },
     {
         id: 'programming-languages-rust',
-        name: 'Rust',
-        slug: 'rust',
-        description: 'Rust systems programming language',
-        parentId: 'programming-languages',
         path: 'programming/languages/rust',
-        level: 2
+        description: 'Rust systems programming language'
     },
-    // Programming -> Frontend
     {
         id: 'programming-frontend',
-        name: 'Frontend',
-        slug: 'frontend',
-        description: 'Frontend development and technologies',
-        parentId: 'programming',
         path: 'programming/frontend',
-        level: 1
+        description: 'Frontend development and technologies'
     },
     {
         id: 'programming-frontend-react',
-        name: 'React',
-        slug: 'react',
-        description: 'React library and ecosystem',
-        parentId: 'programming-frontend',
         path: 'programming/frontend/react',
-        level: 2
+        description: 'React library and ecosystem'
     },
     {
         id: 'programming-frontend-css',
-        name: 'CSS',
-        slug: 'css',
-        description: 'CSS styling and layout',
-        parentId: 'programming-frontend',
         path: 'programming/frontend/css',
-        level: 2
+        description: 'CSS styling and layout'
     },
-    // Programming -> Backend
     {
         id: 'programming-backend',
-        name: 'Backend',
-        slug: 'backend',
-        description: 'Backend development and server technologies',
-        parentId: 'programming',
         path: 'programming/backend',
-        level: 1
+        description: 'Backend development and server technologies'
     },
     {
         id: 'programming-backend-nodejs',
-        name: 'Node.js',
-        slug: 'nodejs',
-        description: 'Node.js runtime and development',
-        parentId: 'programming-backend',
         path: 'programming/backend/nodejs',
-        level: 2
+        description: 'Node.js runtime and development'
     },
     {
         id: 'programming-backend-api',
-        name: 'API Development',
-        slug: 'api',
-        description: 'REST APIs and web services',
-        parentId: 'programming-backend',
         path: 'programming/backend/api',
-        level: 2
+        description: 'REST APIs and web services'
     },
-    // Programming -> DevOps
     {
         id: 'programming-devops',
-        name: 'DevOps',
-        slug: 'devops',
-        description: 'DevOps practices and tools',
-        parentId: 'programming',
         path: 'programming/devops',
-        level: 1
+        description: 'DevOps practices and tools'
     },
     {
         id: 'programming-devops-docker',
-        name: 'Docker',
-        slug: 'docker',
-        description: 'Containerization with Docker',
-        parentId: 'programming-devops',
         path: 'programming/devops/docker',
-        level: 2
+        description: 'Containerization with Docker'
     },
 
-    // Career (Root)
+    // Career
     {
         id: 'career',
-        name: 'Career',
-        slug: 'career',
-        description: 'Professional development and career growth',
         path: 'career',
-        level: 0
+        description: 'Professional development and career growth'
     },
-    // Career -> Growth
     {
         id: 'career-growth',
-        name: 'Growth',
-        slug: 'growth',
-        description: 'Career advancement and skill development',
-        parentId: 'career',
         path: 'career/growth',
-        level: 1
+        description: 'Career advancement and skill development'
     },
     {
         id: 'career-growth-skills',
-        name: 'Skill Development',
-        slug: 'skills',
-        description: 'Technical and soft skills development',
-        parentId: 'career-growth',
         path: 'career/growth/skills',
-        level: 2
+        description: 'Technical and soft skills development'
     },
     {
         id: 'career-growth-networking',
-        name: 'Networking',
-        slug: 'networking',
-        description: 'Professional networking and relationships',
-        parentId: 'career-growth',
         path: 'career/growth/networking',
-        level: 2
+        description: 'Professional networking and relationships'
     },
-    // Career -> Learning
     {
         id: 'career-learning',
-        name: 'Learning',
-        slug: 'learning',
-        description: 'Educational resources and learning strategies',
-        parentId: 'career',
         path: 'career/learning',
-        level: 1
+        description: 'Educational resources and learning strategies'
     },
     {
         id: 'career-learning-courses',
-        name: 'Courses',
-        slug: 'courses',
-        description: 'Online courses and bootcamps',
-        parentId: 'career-learning',
         path: 'career/learning/courses',
-        level: 2
+        description: 'Online courses and bootcamps'
     },
     {
         id: 'career-learning-books',
-        name: 'Books',
-        slug: 'books',
-        description: 'Technical books and reading materials',
-        parentId: 'career-learning',
         path: 'career/learning/books',
-        level: 2
+        description: 'Technical books and reading materials'
     },
 
-    // Work (Root)
+    // Work
     {
         id: 'work',
-        name: 'Work',
-        slug: 'work',
-        description: 'Work processes and productivity',
         path: 'work',
-        level: 0
+        description: 'Work processes and productivity'
     },
-    // Work -> Remote
     {
         id: 'work-remote',
-        name: 'Remote Work',
-        slug: 'remote',
-        description: 'Remote work practices and tools',
-        parentId: 'work',
         path: 'work/remote',
-        level: 1
+        description: 'Remote work practices and tools'
     },
     {
         id: 'work-remote-productivity',
-        name: 'Productivity',
-        slug: 'productivity',
-        description: 'Remote work productivity tips',
-        parentId: 'work-remote',
         path: 'work/remote/productivity',
-        level: 2
+        description: 'Remote work productivity tips'
     },
-    // Work -> Collaboration
     {
         id: 'work-collaboration',
-        name: 'Collaboration',
-        slug: 'collaboration',
-        description: 'Team collaboration and communication',
-        parentId: 'work',
         path: 'work/collaboration',
-        level: 1
+        description: 'Team collaboration and communication'
     },
     {
         id: 'work-collaboration-pair-programming',
-        name: 'Pair Programming',
-        slug: 'pair-programming',
-        description: 'Collaborative coding practices',
-        parentId: 'work-collaboration',
         path: 'work/collaboration/pair-programming',
-        level: 2
+        description: 'Collaborative coding practices'
     },
     {
         id: 'work-collaboration-code-review',
-        name: 'Code Review',
-        slug: 'code-review',
-        description: 'Code review processes and best practices',
-        parentId: 'work-collaboration',
         path: 'work/collaboration/code-review',
-        level: 2
+        description: 'Code review processes and best practices'
     }
 ];
-
-// Function to build hierarchical structure from flat array
-export function buildCategoryHierarchy(categories: Category[]): Category[] {
-    const categoryMap = new Map<string, Category>();
-    const rootCategories: Category[] = [];
-
-    // Create a map for quick lookup
-    categories.forEach(category => {
-        categoryMap.set(category.id, { ...category, children: [] });
-    });
-
-    // Build the hierarchy
-    categories.forEach(category => {
-        const categoryWithChildren = categoryMap.get(category.id)!;
-
-        if (category.parentId) {
-            const parent = categoryMap.get(category.parentId);
-            if (parent) {
-                if (!parent.children) {
-                    parent.children = [];
-                }
-                parent.children.push(categoryWithChildren);
-            }
-        } else {
-            rootCategories.push(categoryWithChildren);
-        }
-    });
-
-    return rootCategories;
-}
 
 export const sampleNotes: Note[] = [
     {
@@ -296,41 +157,37 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-15T11:15:00Z",
                 rating: 4,
                 zapAmount: 3,
-                zaps: [
+                votes: [
                     {
                         id: '1',
                         eventID: '1',
-                        username: "DevEnthusiast",
-                        avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=40&h=40&fit=crop&crop=face",
+                        author: "DevEnthusiast",
                         amount: 1,
                         comment: "I agree! React is such a powerful library.",
-                        timestamp: "2025-08-15T12:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '2',
                         eventID: '1',
-                        username: "FrontendDev",
-                        avatar: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=40&h=40&fit=crop&crop=face",
+                        author: "FrontendDev",
                         amount: 2,
-                        timestamp: "2025-08-15T13:30:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '3',
                         eventID: '1',
-                        username: "CriticUser",
-                        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+                        author: "CriticUser",
                         amount: 1,
                         comment: "While this is encouraging, I think beginners should focus on fundamentals first before diving into frameworks.",
-                        timestamp: "2025-08-15T14:45:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '4',
                         eventID: '1',
-                        username: "ReactFan",
-                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+                        author: "ReactFan",
                         amount: 3,
                         comment: "Great advice! Building projects is the best way to learn.",
-                        timestamp: "2025-08-15T15:20:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -342,23 +199,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-15T12:30:00Z",
                 rating: 5,
                 zapAmount: 2,
-                zaps: [
+                votes: [
                     {
                         id: '5',
                         eventID: '1',
-                        username: "WebDev2023",
-                        avatar: "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=40&h=40&fit=crop&crop=face",
+                        author: "WebDev2023",
                         amount: 2,
                         comment: "React has an amazing ecosystem!",
-                        timestamp: "2025-08-15T16:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '6',
                         eventID: '1',
-                        username: "CodeNewbie",
-                        avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=40&h=40&fit=crop&crop=face",
+                        author: "CodeNewbie",
                         amount: 1,
-                        timestamp: "2025-08-15T17:30:00Z"
+                        createdAt: 1
                     }
                 ]
             }
@@ -380,32 +235,29 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-14T16:20:00Z",
                 rating: 5,
                 zapAmount: 12,
-                zaps: [
+                votes: [
                     {
                         id: '7',
                         eventID: '1',
-                        username: "MotivatedCoder",
-                        avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=40&h=40&fit=crop&crop=face",
+                        author: "MotivatedCoder",
                         amount: 3,
                         comment: "These tips are gold! Saving this for later.",
-                        timestamp: "2025-08-14T17:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '8',
                         eventID: '1',
-                        username: "StudyBuddy",
-                        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face",
+                        author: "StudyBuddy",
                         amount: 2,
-                        timestamp: "2025-08-14T18:15:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '9',
                         eventID: '1',
-                        username: "CodeJourney",
-                        avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop&crop=face",
+                        author: "CodeJourney",
                         amount: 1,
                         comment: "Motivation is key!",
-                        timestamp: "2025-08-14T19:45:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -417,23 +269,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-14T17:45:00Z",
                 rating: 4,
                 zapAmount: 4,
-                zaps: [
+                votes: [
                     {
                         id: '10',
                         eventID: '1',
-                        username: "OpenSourceFan",
-                        avatar: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=40&h=40&fit=crop&crop=face",
+                        author: "OpenSourceFan",
                         amount: 5,
                         comment: "Reading open source code taught me so much!",
-                        timestamp: "2025-08-14T18:30:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '11',
                         eventID: '1',
-                        username: "LearnByExample",
-                        avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=40&h=40&fit=crop&crop=face",
+                        author: "LearnByExample",
                         amount: 3,
-                        timestamp: "2025-08-14T20:00:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -445,23 +295,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-14T19:10:00Z",
                 rating: 3,
                 zapAmount: 5,
-                zaps: [
+                votes: [
                     {
                         id: '31',
                         eventID: '1',
-                        username: "DebugMaster",
-                        avatar: "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=40&h=40&fit=crop&crop=face",
+                        author: "DebugMaster",
                         amount: 2,
                         comment: "Debugging is the best teacher!",
-                        timestamp: "2025-08-14T20:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '32',
                         eventID: '1',
-                        username: "ErrorHunter",
-                        avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=40&h=40&fit=crop&crop=face",
+                        author: "ErrorHunter",
                         amount: 1,
-                        timestamp: "2025-08-14T21:15:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -473,23 +321,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-14T20:30:00Z",
                 rating: 5,
                 zapAmount: 3,
-                zaps: [
+                votes: [
                     {
                         id: '33',
                         eventID: '1',
-                        username: "CommunityBuilder",
-                        avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=40&h=40&fit=crop&crop=face",
+                        author: "CommunityBuilder",
                         amount: 4,
                         comment: "Coding communities are invaluable for growth!",
-                        timestamp: "2025-08-14T21:30:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '34',
                         eventID: '1',
-                        username: "ChallengeSeeker",
-                        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face",
+                        author: "ChallengeSeeker",
                         amount: 2,
-                        timestamp: "2025-08-14T22:45:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -501,15 +347,14 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-14T21:15:00Z",
                 rating: 1,
                 zapAmount: 7,
-                zaps: [
+                votes: [
                     {
                         id: '35',
                         eventID: '1',
-                        username: "PolyglotProgrammer",
-                        avatar: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=40&h=40&fit=crop&crop=face",
+                        author: "PolyglotProgrammer",
                         amount: 3,
                         comment: "Universal advice that works across all languages!",
-                        timestamp: "2025-08-14T22:00:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -521,23 +366,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-15T08:45:00Z",
                 rating: 5,
                 zapAmount: 99,
-                zaps: [
+                votes: [
                     {
                         id: '36',
                         eventID: '1',
-                        username: "ProjectBased",
-                        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&fit=crop&crop=face",
+                        author: "ProjectBased",
                         amount: 15,
                         comment: "Projects are where theory meets practice!",
-                        timestamp: "2025-08-15T09:30:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '37',
                         eventID: '1',
-                        username: "PracticalLearner",
-                        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+                        author: "PracticalLearner",
                         amount: 10,
-                        timestamp: "2025-08-15T10:15:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -549,24 +392,22 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-15T09:20:00Z",
                 rating: 3,
                 zapAmount: 56,
-                zaps: [
+                votes: [
                     {
                         id: '38',
                         eventID: '1',
-                        username: "MistakeMaker",
-                        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face",
+                        author: "MistakeMaker",
                         amount: 8,
                         comment: "Fear of breaking things held me back for years. Embrace the errors!",
-                        timestamp: "2025-08-15T10:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '39',
                         eventID: '1',
-                        username: "GrowthMindset",
-                        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=40&h=40&fit=crop&crop=face",
+                        author: "GrowthMindset",
                         amount: 5,
                         comment: "Every error is a learning opportunity!",
-                        timestamp: "2025-08-15T11:30:00Z"
+                        createdAt: 1
                     }
                 ]
             }
@@ -588,32 +429,29 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-13T10:45:00Z",
                 rating: 3,
                 zapAmount: 61,
-                zaps: [
+                votes: [
                     {
                         id: '12',
                         eventID: '1',
-                        username: "OpenSourceAdvocate",
-                        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&fit=crop&crop=face",
+                        author: "OpenSourceAdvocate",
                         amount: 10,
                         comment: "Welcome to the open source community! Every contribution matters.",
-                        timestamp: "2025-08-13T11:30:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '13',
                         eventID: '1',
-                        username: "Maintainer",
-                        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+                        author: "Maintainer",
                         amount: 8,
                         comment: "We love seeing new contributors!",
-                        timestamp: "2025-08-13T12:15:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '14',
                         eventID: '1',
-                        username: "ContributorPro",
-                        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face",
+                        author: "ContributorPro",
                         amount: 5,
-                        timestamp: "2025-08-13T14:00:00Z"
+                        createdAt: 1
                     }
                 ]
             }
@@ -644,23 +482,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-11T12:30:00Z",
                 rating: 5,
                 zapAmount: 2,
-                zaps: [
+                votes: [
                     {
                         id: '15',
                         eventID: '1',
-                        username: "ReviewExpert",
-                        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=40&h=40&fit=crop&crop=face",
+                        author: "ReviewExpert",
                         amount: 4,
                         comment: "Code reviews are where real learning happens!",
-                        timestamp: "2025-08-11T13:15:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '16',
                         eventID: '1',
-                        username: "TeamLead",
-                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+                        author: "TeamLead",
                         amount: 2,
-                        timestamp: "2025-08-11T14:45:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -672,31 +508,28 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-11T14:15:00Z",
                 rating: 4,
                 zapAmount: 2,
-                zaps: [
+                votes: [
                     {
                         id: '17',
                         eventID: '1',
-                        username: "MentoringMatters",
-                        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face",
+                        author: "MentoringMatters",
                         amount: 6,
                         comment: "Mentoring through code reviews builds strong teams.",
-                        timestamp: "2025-08-11T15:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '18',
                         eventID: '1',
-                        username: "QualityFirst",
-                        avatar: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=40&h=40&fit=crop&crop=face",
+                        author: "QualityFirst",
                         amount: 3,
-                        timestamp: "2025-08-11T16:30:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '19',
                         eventID: '1',
-                        username: "CodeQuality",
-                        avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop&crop=face",
+                        author: "CodeQuality",
                         amount: 1,
-                        timestamp: "2025-08-11T17:00:00Z"
+                        createdAt: 1
                     }
                 ]
             }
@@ -718,23 +551,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-10T17:15:00Z",
                 rating: 3,
                 zapAmount: 7,
-                zaps: [
+                votes: [
                     {
                         id: '40',
                         eventID: '1',
-                        username: "SeniorMentor",
-                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+                        author: "SeniorMentor",
                         amount: 6,
                         comment: "You got this! The beginning is always the hardest.",
-                        timestamp: "2025-08-10T18:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '41',
                         eventID: '1',
-                        username: "FormerBootcamper",
-                        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face",
+                        author: "FormerBootcamper",
                         amount: 4,
-                        timestamp: "2025-08-10T19:30:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -746,24 +577,22 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-10T18:30:00Z",
                 rating: 2,
                 zapAmount: 77,
-                zaps: [
+                votes: [
                     {
                         id: '42',
                         eventID: '1',
-                        username: "LateStarter",
-                        avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop&crop=face",
+                        author: "LateStarter",
                         amount: 12,
                         comment: "It's never too late! I switched at 40 and love it.",
-                        timestamp: "2025-08-10T19:15:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '43',
                         eventID: '1',
-                        username: "CareerPivot",
-                        avatar: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=40&h=40&fit=crop&crop=face",
+                        author: "CareerPivot",
                         amount: 9,
                         comment: "Age is just a number. Your life experience is an asset!",
-                        timestamp: "2025-08-10T20:00:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -775,23 +604,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-10T19:45:00Z",
                 rating: 3,
                 zapAmount: 111,
-                zaps: [
+                votes: [
                     {
                         id: '44',
                         eventID: '1',
-                        username: "HiringManager",
-                        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face",
+                        author: "HiringManager",
                         amount: 20,
                         comment: "We hire based on skills and attitude, not just degrees!",
-                        timestamp: "2025-08-10T20:30:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '45',
                         eventID: '1',
-                        username: "TalentScout",
-                        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=40&h=40&fit=crop&crop=face",
+                        author: "TalentScout",
                         amount: 15,
-                        timestamp: "2025-08-10T21:45:00Z"
+                        createdAt: 1
                     }
                 ]
             }
@@ -812,23 +639,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-09T14:20:00Z",
                 rating: 4,
                 zapAmount: 2,
-                zaps: [
+                votes: [
                     {
                         id: '20',
                         eventID: '1',
-                        username: "DockerPro",
-                        avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=40&h=40&fit=crop&crop=face",
+                        author: "DockerPro",
                         amount: 4,
                         comment: "Great analogy! It really helps visualize containerization.",
-                        timestamp: "2025-08-09T15:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '21',
                         eventID: '1',
-                        username: "DevOpsGuru",
-                        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&fit=crop&crop=face",
+                        author: "DevOpsGuru",
                         amount: 2,
-                        timestamp: "2025-08-09T16:30:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -840,15 +665,14 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-09T15:45:00Z",
                 rating: 5,
                 zapAmount: 4,
-                zaps: [
+                votes: [
                     {
                         id: '22',
                         eventID: '1',
-                        username: "K8sLearner",
-                        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+                        author: "K8sLearner",
                         amount: 5,
                         comment: "Learning Docker first was the best decision!",
-                        timestamp: "2025-08-09T17:00:00Z"
+                        createdAt: 1
                     }
                 ]
             }
@@ -870,24 +694,22 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-08T11:30:00Z",
                 rating: 5,
                 zapAmount: 14,
-                zaps: [
+                votes: [
                     {
                         id: '23',
                         eventID: '1',
-                        username: "PerformanceMatters",
-                        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face",
+                        author: "PerformanceMatters",
                         amount: 7,
                         comment: "Rust's zero-cost abstractions are incredible for performance-critical apps.",
-                        timestamp: "2025-08-08T12:15:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '24',
                         eventID: '1',
-                        username: "MultiLangDev",
-                        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=40&h=40&fit=crop&crop=face",
+                        author: "MultiLangDev",
                         amount: 4,
                         comment: "Both languages are great! Use the right tool for the job.",
-                        timestamp: "2025-08-08T13:45:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -899,23 +721,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-08T13:15:00Z",
                 rating: 4,
                 zapAmount: 8,
-                zaps: [
+                votes: [
                     {
                         id: '25',
                         eventID: '1',
-                        username: "MemorySafety",
-                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+                        author: "MemorySafety",
                         amount: 6,
                         comment: "No more null pointer exceptions or memory leaks!",
-                        timestamp: "2025-08-08T14:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '26',
                         eventID: '1',
-                        username: "RustConvert",
-                        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face",
+                        author: "RustConvert",
                         amount: 3,
-                        timestamp: "2025-08-08T15:30:00Z"
+                        createdAt: 1
                     }
                 ]
             }
@@ -937,24 +757,22 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-07T21:15:00Z",
                 rating: 1,
                 zapAmount: 10,
-                zaps: [
+                votes: [
                     {
                         id: '27',
                         eventID: '1',
-                        username: "SecurityFirst",
-                        avatar: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=40&h=40&fit=crop&crop=face",
+                        author: "SecurityFirst",
                         amount: 8,
                         comment: "JWT is great, but remember to store tokens securely!",
-                        timestamp: "2025-08-07T22:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '28',
                         eventID: '1',
-                        username: "AuthExpert",
-                        avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop&crop=face",
+                        author: "AuthExpert",
                         amount: 5,
                         comment: "Also consider OAuth2 for third-party authentication.",
-                        timestamp: "2025-08-07T23:15:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -966,23 +784,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-07T22:30:00Z",
                 rating: 5,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '29',
                         eventID: '1',
-                        username: "RESTfulAPI",
-                        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+                        author: "RESTfulAPI",
                         amount: 3,
                         comment: "REST principles apply to all API design!",
-                        timestamp: "2025-08-07T23:45:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '30',
                         eventID: '1',
-                        username: "BackendDev",
-                        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face",
+                        author: "BackendDev",
                         amount: 2,
-                        timestamp: "2025-08-08T00:30:00Z"
+                        createdAt: 1
                     }
                 ]
             }
@@ -1003,23 +819,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-06T13:20:00Z",
                 rating: 2,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '46',
                         eventID: '1',
-                        username: "FPAdvocate",
-                        avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=40&h=40&fit=crop&crop=face",
+                        author: "FPAdvocate",
                         amount: 3,
                         comment: "Immutability makes debugging so much easier!",
-                        timestamp: "2025-08-06T14:00:00Z"
+                        createdAt: 1
                     },
                     {
                         id: '47',
                         eventID: '1',
-                        username: "HybridApproach",
-                        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&fit=crop&crop=face",
+                        author: "HybridApproach",
                         amount: 2,
-                        timestamp: "2025-08-06T15:30:00Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -1031,15 +845,14 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-06T14:45:00Z",
                 rating: 5,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '48',
                         eventID: '1',
-                        username: "FunctionalFirst",
-                        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+                        author: "FunctionalFirst",
                         amount: 4,
                         comment: "Mindset over syntax!",
-                        timestamp: "2025-08-06T16:00:00Z"
+                        createdAt: 1
                     }
                 ]
             }
@@ -1061,23 +874,21 @@ export const sampleNotes: Note[] = [
 
                 rating: 4,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '49',
                         eventID: '1',
-                        username: "HealthFirst",
-                        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face",
+                        author: "HealthFirst",
                         amount: 3,
                         comment: "Physical health directly impacts code quality!",
-                        timestamp: "2025-08-01T15:00:00.000Z"
+                        createdAt: 1
                     },
                     {
                         id: '50',
                         eventID: '1',
-                        username: "WorkLifeBalance",
-                        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=40&h=40&fit=crop&crop=face",
+                        author: "WorkLifeBalance",
                         amount: 2,
-                        timestamp: "2025-08-01T16:30:00.000Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -1090,15 +901,14 @@ export const sampleNotes: Note[] = [
 
                 rating: 5,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '51',
                         eventID: '1',
-                        username: "HomeOfficeExpert",
-                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+                        author: "HomeOfficeExpert",
                         amount: 4,
                         comment: "Dedicated workspace changed everything for me!",
-                        timestamp: "2025-08-01T20:00:00.000Z"
+                        createdAt: 1
                     }
                 ]
 
@@ -1111,23 +921,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-02T00:00:00.000Z",
                 rating: 5,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '52',
                         eventID: '1',
-                        username: "RemoteTeamLead",
-                        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face",
+                        author: "RemoteTeamLead",
                         amount: 5,
                         comment: "Over-communication is better than under-communication in remote work!",
-                        timestamp: "2025-08-02T01:00:00.000Z"
+                        createdAt: 1
                     },
                     {
                         id: '53',
                         eventID: '1',
-                        username: "AsyncCommunicator",
-                        avatar: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=40&h=40&fit=crop&crop=face",
+                        author: "AsyncCommunicator",
                         amount: 3,
-                        timestamp: "2025-08-02T02:30:00.000Z"
+                        createdAt: 1
                     }
                 ]
             }
@@ -1149,15 +957,14 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-02T03:00:00.000Z",
                 rating: 1,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '54',
                         eventID: '1',
-                        username: "MLPractitioner",
-                        avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop&crop=face",
+                        author: "MLPractitioner",
                         amount: 2,
                         comment: "Start with high-level libraries, the math will make sense as you go!",
-                        timestamp: "2025-08-02T04:00:00.000Z"
+                        createdAt: 1
                     }
                 ]
             },
@@ -1169,23 +976,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-02T09:00:00.000Z",
                 rating: 5,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '55',
                         eventID: '1',
-                        username: "AIEnthusiast",
-                        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face",
+                        author: "AIEnthusiast",
                         amount: 3,
                         comment: "AutoML tools are amazing for getting started quickly!",
-                        timestamp: "2025-08-02T10:00:00.000Z"
+                        createdAt: 1
                     },
                     {
                         id: '56',
                         eventID: '1',
-                        username: "TransferLearning",
-                        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=40&h=40&fit=crop&crop=face",
+                        author: "TransferLearning",
                         amount: 2,
-                        timestamp: "2025-08-02T11:30:00.000Z"
+                        createdAt: 1
                     }
                 ]
 
@@ -1208,15 +1013,14 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-02T15:00:00.000Z",
                 rating: 1,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '57',
                         eventID: '1',
-                        username: "FlowState",
-                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+                        author: "FlowState",
                         amount: 2,
                         comment: "Balance is key - pair for complex problems, solo for deep focus.",
-                        timestamp: "2025-08-02T16:00:00.000Z"
+                        createdAt: 1
                     }
                 ]
 
@@ -1229,23 +1033,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-02T19:00:00.000Z",
                 rating: 5,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '58',
                         eventID: '1',
-                        username: "TeamCollaboration",
-                        avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop&crop=face",
+                        author: "TeamCollaboration",
                         amount: 3,
                         comment: "Collaboration unlocks solutions you'd never find alone!",
-                        timestamp: "2025-08-02T20:00:00.000Z"
+                        createdAt: 1
                     },
                     {
                         id: '59',
                         eventID: '1',
-                        username: "PairProgrammingFan",
-                        avatar: "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=40&h=40&fit=crop&crop=face",
+                        author: "PairProgrammingFan",
                         amount: 2,
-                        timestamp: "2025-08-02T21:30:00.000Z"
+                        createdAt: 1
                     }
                 ]
 
@@ -1267,23 +1069,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-03T00:00:00.000Z",
                 rating: 5,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '60',
                         eventID: '1',
-                        username: "CSSMentor",
-                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+                        author: "CSSMentor",
                         amount: 4,
                         comment: "This analogy is perfect for teaching CSS layout!",
-                        timestamp: "2025-08-03T01:00:00.000Z"
+                        createdAt: 1
                     },
                     {
                         id: '61',
                         eventID: '1',
-                        username: "LayoutExpert",
-                        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face",
+                        author: "LayoutExpert",
                         amount: 2,
-                        timestamp: "2025-08-03T02:30:00.000Z"
+                        createdAt: 1
                     }
                 ]
 
@@ -1296,15 +1096,14 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-03T07:00:00.000Z",
                 rating: 2,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '62',
                         eventID: '1',
-                        username: "ResponsiveDesigner",
-                        avatar: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=40&h=40&fit=crop&crop=face",
+                        author: "ResponsiveDesigner",
                         amount: 3,
                         comment: "Auto-fit and minmax() are game changers!",
-                        timestamp: "2025-08-03T08:00:00.000Z"
+                        createdAt: 1
                     }
                 ]
 
@@ -1327,15 +1126,14 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-03T12:00:00.000Z",
                 rating: 1,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '63',
                         eventID: '1',
-                        username: "LearningFromMistakes",
-                        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+                        author: "LearningFromMistakes",
                         amount: 2,
                         comment: "Transparency about mistakes helps everyone grow!",
-                        timestamp: "2025-08-03T13:00:00.000Z"
+                        createdAt: 1
                     }
                 ]
 
@@ -1348,23 +1146,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-03T14:00:00.000Z",
                 rating: 5,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '64',
                         eventID: '1',
-                        username: "TestingAdvocate",
-                        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=40&h=40&fit=crop&crop=face",
+                        author: "TestingAdvocate",
                         amount: 5,
                         comment: "Testing saves production disasters!",
-                        timestamp: "2025-08-03T15:00:00.000Z"
+                        createdAt: 1
                     },
                     {
                         id: '65',
                         eventID: '1',
-                        username: "QualityAssurance",
-                        avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=40&h=40&fit=crop&crop=face",
+                        author: "QualityAssurance",
                         amount: 3,
-                        timestamp: "2025-08-03T16:30:00.000Z"
+                        createdAt: 1
                     }
                 ]
 
@@ -1377,23 +1173,21 @@ export const sampleNotes: Note[] = [
                 createdAt: "2025-08-03T19:00:00.000Z",
                 rating: 4,
                 zapAmount: 1,
-                zaps: [
+                votes: [
                     {
                         id: '66',
                         eventID: '1',
-                        username: "MentorDev",
-                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+                        author: "MentorDev",
                         amount: 4,
                         comment: "Everyone makes mistakes. Learn from them and move forward!",
-                        timestamp: "2025-08-03T20:00:00.000Z"
+                        createdAt: 1
                     },
                     {
                         id: '67',
                         eventID: '1',
-                        username: "SupportiveDev",
-                        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face",
+                        author: "SupportiveDev",
                         amount: 2,
-                        timestamp: "2025-08-03T21:30:00.000Z"
+                        createdAt: 1
                     }
                 ]
             }

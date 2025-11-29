@@ -37,9 +37,9 @@ export const usePageTitle = (): { title: string; showHeader: boolean } => {
             return { title: 'Review', showHeader: true };
         }
 
-        const noteId = params.id ? parseInt(params.id, 10) : null;
-        if (noteId) {
-            const note = sampleNotes.find(n => n.id === noteId);
+        const noteID = params.id || null;
+        if (noteID) {
+            const note = sampleNotes.find(n => n.id === noteID);
             if (note) {
                 return { title: note.title, showHeader: true };
             }
@@ -47,12 +47,8 @@ export const usePageTitle = (): { title: string; showHeader: boolean } => {
         return { title: 'Note', showHeader: true };
     }
 
-    if (location.pathname === '/profile' || location.pathname.startsWith('/users/')) {
-        return { title: 'Profile', showHeader: true };
-    }
-
-    if (location.pathname.startsWith('/profile/')) {
-        const pathSegments = location.pathname.split('/');
+    if (location.pathname.startsWith('/users/')) {
+         const pathSegments = location.pathname.split('/');
 
         if (pathSegments[3] === 'reviews') {
             return { title: 'Reviews', showHeader: true };

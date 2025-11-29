@@ -1,11 +1,9 @@
-import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { createContext, useContext, type ReactNode } from 'react';
 
 import NostrClient from '../lib/nostr/nostr';
 
 interface NostrContextType {
     nostrClient: NostrClient;
-    showLoginModal: boolean;
-    setShowLoginModal: (show: boolean) => void;
 }
 
 const NostrContext = createContext<NostrContextType | undefined>(undefined);
@@ -25,10 +23,8 @@ interface NostrProviderProps {
 export const NostrProvider: React.FC<NostrProviderProps> = (props) => {
     const nostrClient = new NostrClient();
 
-    const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
-
     return (
-        <NostrContext.Provider value={{ nostrClient, showLoginModal, setShowLoginModal }}>
+        <NostrContext.Provider value={{ nostrClient }}>
             {props.children}
         </NostrContext.Provider>
     );

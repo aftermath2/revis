@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { NostrProvider, useNostrContext, ThemeProvider, WalletProvider } from './contexts';
-import { ErrorBoundary } from './components/common';
+import { NostrProvider, ThemeProvider, WalletProvider, UserProvider, useUserContext } from './contexts';
+import { ErrorBoundary, LoadingSpinner } from './components/common';
 import { LoginDialog } from './components/dialogs';
 import { Header, Sidebar } from './components/layout';
 import { NoteDetail, NotesList } from './components/notes';
@@ -11,9 +11,10 @@ import { Profile, ReviewsList } from './components/users';
 import styles from './App.module.css';
 
 const AppContent = () => {
-  const { showLoginModal, setShowLoginModal, nostrClient } = useNostrContext();
+  const { showLoginModal, setShowLoginModal, isLoading: loading } = useUserContext();
 
   return (
+    loading ? <LoadingSpinner /> :
     <Router>
       <div className={styles.scrollWrapper}>
         <div className={styles.root}>
@@ -29,15 +30,11 @@ const AppContent = () => {
                 <Routes>
                   <Route path='/' element={<NotesList />} />
                   <Route path='/notes/:id' element={<NoteDetail />} />
-                  <Route path='/notes/:noteId/reviews/:reviewId' element={<ReviewDetail />} />
+                  <Route path='/reviews/:reviewID' element={<ReviewDetail />} />
                   <Route path='/categories' element={<CategoriesList />} />
                   <Route path='/categories/*' element={<CategoriesDetail />} />
-                  <Route
-                    path='/profile'
-                    element={nostrClient.getSigner() ? <Profile /> : <Navigate to='/' replace />}
-                  />
-                  <Route path='/users/:username' element={<Profile />} />
-                  <Route path='/users/:username/reviews' element={<ReviewsList />} />
+                  <Route path='/users/:publicKey' element={<Profile />} />
+                  <Route path='/users/:publicKey/reviews' element={<ReviewsList />} />
                 </Routes>
               </main>
             </div>
@@ -58,11 +55,13 @@ const App = () => {
   return (
     <ErrorBoundary>
       <NostrProvider>
-        <WalletProvider>
-          <ThemeProvider>
+        <UserProvider>
+          <WalletProvider>
+            <ThemeProvider>
               <AppContent />
-          </ThemeProvider>
-        </WalletProvider>
+            </ThemeProvider>
+          </WalletProvider>
+        </UserProvider>
       </NostrProvider>
     </ErrorBoundary>
   );

@@ -6,7 +6,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import { ThemeSwitcher } from '../switchers';
-import { useNostrContext } from '../../contexts';
+import { useUserContext } from '../../contexts';
 import { useThemeContext } from '../../contexts/ThemeContext';
 import styles from './Sidebar.module.css';
 
@@ -16,7 +16,7 @@ interface SidebarProps {
 
 const Sidebar = (props: SidebarProps) => {
     const location = useLocation();
-    const { nostrClient } = useNostrContext();
+    const { user } = useUserContext();
     const { toggleTheme } = useThemeContext();
 
     const [isLongPressing, setIsLongPressing] = useState(false);
@@ -90,9 +90,9 @@ const Sidebar = (props: SidebarProps) => {
                         <span>Categories</span>
                     </Link>
 
-                    {nostrClient.getSigner() ? (
+                    {user.publicKey ? (
                         <Link
-                            to='/profile'
+                            to={`/users/${user.publicKey}`}
                             className={`${styles.navItem} ${isActive('/profile') ? styles.active : ''}`}
                         >
                             <div className={styles.navIcon}>

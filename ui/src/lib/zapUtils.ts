@@ -21,8 +21,8 @@ export const calculateNoteZaps = (reviews: Review[]): number => {
     for (const review of reviews) {
         total += review.zapAmount;
 
-        if (review.zaps && review.zaps.length > 0) {
-            const amount = review.zaps.reduce((sum, zap) => sum + zap.amount, 0);
+        if (review.votes && review.votes.length > 0) {
+            const amount = review.votes.reduce((sum, zap) => sum + zap.amount, 0);
             total += amount;
         }
     }

@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-import { Note } from '../../../utils/types';
+import { type Note } from '../../../lib/types';
+import { getCategoryName } from '../../../lib/categories';
 import { sampleNotes, sampleCategories } from '../../../data/sampleData';
 import NotesList from '../List';
 import styles from './Detail.module.css';
@@ -14,29 +15,6 @@ const CategoriesDetail = () => {
     const currentCategory = useMemo(() => {
         if (!categoryPath) return null;
         return sampleCategories.find(cat => cat.path === categoryPath);
-    }, [categoryPath]);
-
-    // Generate breadcrumb navigation
-    const breadcrumbs = useMemo(() => {
-        if (!categoryPath) return [];
-
-        const pathParts = categoryPath.split('/');
-        const breadcrumbItems = [];
-
-        for (let i = 0; i < pathParts.length; i++) {
-            const currentPath = pathParts.slice(0, i + 1).join('/');
-            const category = sampleCategories.find(cat => cat.path === currentPath);
-
-            if (category) {
-                breadcrumbItems.push({
-                    name: category.name,
-                    path: currentPath,
-                    isLast: i === pathParts.length - 1
-                });
-            }
-        }
-
-        return breadcrumbItems;
     }, [categoryPath]);
 
     // Filter notes that belong to this category or its subcategories
@@ -100,7 +78,7 @@ const CategoriesDetail = () => {
                                     to={`/categories/${subcategory.path}`}
                                     className={styles.subcategoryCard}
                                 >
-                                    <h3 className={styles.subcategoryName}>{subcategory.name}</h3>
+                                    <h3 className={styles.subcategoryName}>{getCategoryName(subcategory.path)}</h3>
                                     {subcategory.description && (
                                         <p className={styles.subcategoryDescription}>{subcategory.description}</p>
                                     )}

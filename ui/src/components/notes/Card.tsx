@@ -1,35 +1,42 @@
-import { memo, useState, useEffect, useRef } from 'react';
+import { memo, useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { OfflineBolt } from '@mui/icons-material';
 
 import Button from '../common/Button';
 import { StarDisplay } from '../common';
-import { Note } from '../../lib/types';
+import { type Review, type Note } from '../../lib/types';
+import { getCategoryName } from '../../lib/categories';
 import { formatNumber, calculateNoteZaps, calculateRating } from '../../lib/zapUtils';
 import styles from './Card.module.css';
+import { useNostrContext } from '../../contexts';
 
 export interface NoteProps {
     note: Note;
 }
 
 const NoteCard = memo((props: NoteProps) => {
+    const { nostrClient } = useNostrContext();
     const navigate = useNavigate();
+
     const [showCategories, setShowCategories] = useState<boolean>(false);
+    const [reviews, setReviews] = useState<Review[]>([]);
 
-    const upvotes = calculateNoteZaps(props.note.reviews);
-    const rating = calculateRating(props.note.reviews);
+    useEffect(() => {
+        async function loadReviews() {
+            const reviewList = await nostrClient.listReviews([props.note.id]);
+            setReviews(reviewList);
+        }
+
+        void loadReviews();
+    })
+
+    const upvotes = calculateNoteZaps(reviews);
+    const rating = calculateRating(reviews);
     const categoriesRef = useRef<HTMLDivElement>(null);
-
-    // Helper function to extract category name from path
-    const getCategoryName = (categoryPath: string): string => {
-        const segments = categoryPath.split('/');
-        const categoryName = segments[segments.length - 1] || categoryPath;
-        return categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
-    };
 
     const onCategoryClick = (category: string, e: React.MouseEvent): void => {
         e.stopPropagation(); // Prevent triggering other click handlers
-        navigate(`/categories/${category}`);
+        void navigate(`/categories/${category}`);
     };
 
     const onToggleCategories = (e?: React.MouseEvent): void => {
@@ -37,24 +44,13 @@ const NoteCard = memo((props: NoteProps) => {
         setShowCategories(!showCategories);
     };
 
-    useEffect(() => {
-        // Function to handle clicks outside of the categories dropdown
-        const onClickOutside = (event: MouseEvent) => {
-            if (categoriesRef.current && !categoriesRef.current.contains(event.target as Node) && showCategories) {
-                setShowCategories(false);
-            }
-        };
-
-        // Add event listener when showCategories is true
-        if (showCategories) {
-            document.addEventListener('mousedown', onClickOutside);
+    // Modern approach: handle clicks via onBlur and relative focus management
+    const onBlur = (e: React.FocusEvent) => {
+        // Check if the new focus target is outside the categories section
+        if (!categoriesRef.current?.contains(e.relatedTarget as Node)) {
+            setShowCategories(false);
         }
-
-        // Cleanup the event listener
-        return () => {
-            document.removeEventListener('mousedown', onClickOutside);
-        };
-    }, [showCategories]);
+    };
 
     return (
         <div className={styles.detailMain}>
@@ -62,7 +58,11 @@ const NoteCard = memo((props: NoteProps) => {
                 <div className={styles.titleSection}>
                     <h1 className={styles.noteTitle}>{props.note.title}</h1>
                 </div>
-                <div className={styles.categoriesSection} ref={categoriesRef}>
+                <div 
+                    className={styles.categoriesSection} 
+                    ref={categoriesRef}
+                    onBlur={onBlur}
+                >
                     <Button
                         variant='tertiary'
                         size='small'
@@ -112,7 +112,7 @@ const NoteCard = memo((props: NoteProps) => {
             )}
             <div className={styles.noteActions}>
                 <div className={styles.noteStats}>
-                    {props.note.reviews && props.note.reviews.length > 0 && (
+                    {reviews && reviews.length > 0 && (
                         <div className={styles.ratingStats}>
                             <StarDisplay rating={rating} />
                             <span className={styles.ratingText}>
@@ -122,7 +122,7 @@ const NoteCard = memo((props: NoteProps) => {
                                 }
                             </span>
                             <span className={styles.reviewCount}>
-                                ({formatNumber(props.note.reviews.length)})
+                                ({formatNumber(reviews.length)})
                             </span>
                         </div>
                     )}

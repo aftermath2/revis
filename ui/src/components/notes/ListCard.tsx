@@ -1,8 +1,9 @@
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { OfflineBolt } from '@mui/icons-material';
 
-import { Note } from '../../lib/types';
+import { useNostrContext } from '../../contexts';
+import { type Note, type Review } from '../../lib/types';
 import { formatNumber, calculateNoteZaps, calculateRating } from '../../lib/zapUtils';
 import { StarDisplay } from '../common';
 import styles from './ListCard.module.css';
@@ -12,13 +13,25 @@ export interface FeedNoteCardProps {
 }
 
 const FeedNoteCard = memo((props: FeedNoteCardProps) => {
+    const { nostrClient } = useNostrContext();
     const navigate = useNavigate();
 
-    const upvotes = calculateNoteZaps(props.note.reviews);
-    const rating = calculateRating(props.note.reviews);
+    const [reviews, setReviews] = useState<Review[]>([]);
+
+    useEffect(() => {
+        async function loadReviews() {
+            const reviewList = await nostrClient.listReviews([props.note.id]);
+            setReviews(reviewList);
+        }
+
+        void loadReviews();
+    })
+
+    const upvotes = calculateNoteZaps(reviews);
+    const rating = calculateRating(reviews);
 
     const onCardClick = (): void => {
-        navigate(`/notes/${props.note.id}`);
+        void navigate(`/notes/${props.note.id}`);
     };
 
     return (
@@ -51,7 +64,7 @@ const FeedNoteCard = memo((props: FeedNoteCardProps) => {
                                 <div className={styles.ratingItem}>
                                     <StarDisplay rating={rating} fontSize={18} />
                                     <span className={styles.ratingValue}>{rating.toFixed(1)}</span>
-                                    <span className={styles.reviewCount}>({formatNumber(props.note.reviews?.length)})</span>
+                                    <span className={styles.reviewCount}>({formatNumber(reviews?.length)})</span>
                                 </div>
                             )}
                             <div className={styles.voteItem}>

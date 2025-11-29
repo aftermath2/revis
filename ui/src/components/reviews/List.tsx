@@ -1,20 +1,20 @@
 import { useState, useMemo, memo } from 'react';
 
-import { Review, Zap } from '../../lib/types';
+import { type Review, type Zap } from '../../lib/types';
 import { calculateWilsonScore } from '../../lib/sortingAlgorithms';
 import { AddReviewForm, ReviewCard } from './';
 import { Button, LoadingSpinner } from '../common';
 import { ITEMS_PER_LOAD } from '../../lib/constants';
 import { useInfiniteScroll } from '../../hooks';
-import { useNostrContext } from '../../contexts';
+import { useNostrContext, useUserContext } from '../../contexts';
 import styles from './List.module.css';
 
 interface ReviewsListProps {
     reviews: Review[];
-    onAddReview?: (review: Review) => void;
+    onAddReview?: (review: Review) => Promise<void>;
     onReviewClick?: (reviewID: string) => void;
+    noteID?: string,
     showAddButton?: boolean;
-    title?: string;
     emptyMessage?: string;
 }
 
@@ -24,11 +24,11 @@ export const ReviewsList = memo((props: ReviewsListProps) => {
         onAddReview,
         onReviewClick,
         showAddButton = false,
-        title = "Reviews",
-        emptyMessage = "No reviews yet. Be the first to add a review!"
+        emptyMessage = "No reviews found. Be the first to add one!"
     } = props;
 
-    const { nostrClient, setShowLoginModal } = useNostrContext();
+    const { nostrClient } = useNostrContext();
+    const { setShowLoginModal } = useUserContext();
     
     const [sortedReviews, setSortedReviews] = useState<Review[]>([]);
     const [visibleReviews, setVisibleReviews] = useState(ITEMS_PER_LOAD / 2);
@@ -44,15 +44,15 @@ export const ReviewsList = memo((props: ReviewsListProps) => {
         });
 
         const sortedList = [...reviews].sort((a, b) => {
-            const aIsUserCreated = userCreatedReviews.has(a.id!);
-            const bIsUserCreated = userCreatedReviews.has(b.id!);
+            const aIsUserCreated = userCreatedReviews.has(a.id);
+            const bIsUserCreated = userCreatedReviews.has(b.id);
 
             if (aIsUserCreated && !bIsUserCreated) return -1;
             if (!aIsUserCreated && bIsUserCreated) return 1;
 
             // For existing reviews, use initial Wilson scores for stable ordering
-            const aScore = scores[a.id!] ?? 0;
-            const bScore = scores[b.id!] ?? 0;
+            const aScore = scores[a.id] ?? 0;
+            const bScore = scores[b.id] ?? 0;
 
             if (aScore !== bScore) {
                 return bScore - aScore; // Sort by initial Wilson score descending
@@ -83,11 +83,11 @@ export const ReviewsList = memo((props: ReviewsListProps) => {
         setIsAddingReview(true);
     }
 
-    const handleAddReview = (review: Review) => {
+    const handleAddReview = async (review: Review) => {
         if (onAddReview) {
-            onAddReview(review);
+            await onAddReview(review);
         }
-        setUserCreatedReviews(prev => new Set(prev).add(review.id!));
+        setUserCreatedReviews(prev => new Set(prev).add(review.id));
         setIsAddingReview(false);
     };
 
@@ -99,22 +99,22 @@ export const ReviewsList = memo((props: ReviewsListProps) => {
         const pubKey = await nostrClient.getSigner()?.getPublicKey();
         const newZap: Zap = {
             id: Date.now().toString(),
-            eventID: '',
-            username: pubKey || 'Anonymous',
-            avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${pubKey || 'anonymous'}`,
+            eventID: props.noteID || "",
+            authorPublicKey: pubKey || "Anonymous",
+            recipient: "",
             amount: amount,
             comment: comment,
-            timestamp: new Date().toISOString()
+            createdAt: Date.now()
         };
 
         // Update the reviews array with the new zap
         setSortedReviews(prevReviews => {
             return prevReviews.map(review => {
                 if (review.id === reviewID) {
-                    const updatedZaps = [...(review.zaps || []), newZap];
+                    const updatedZaps = [...(review.votes || []), newZap];
                     return {
                         ...review,
-                        zaps: updatedZaps
+                        votes: updatedZaps
                     };
                 }
                 return review;
@@ -125,7 +125,7 @@ export const ReviewsList = memo((props: ReviewsListProps) => {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <h3>{title}</h3>
+                <h3>Reviews</h3>
                 {showAddButton && !isAddingReview && (
                     <Button
                         variant='primary'
@@ -139,6 +139,7 @@ export const ReviewsList = memo((props: ReviewsListProps) => {
 
             {showAddButton && isAddingReview && (
                 <AddReviewForm
+                    noteID=''
                     onAddReview={handleAddReview}
                     onCancel={onCancelReview}
                 />
@@ -153,7 +154,7 @@ export const ReviewsList = memo((props: ReviewsListProps) => {
                             <ReviewCard
                                 key={review.id}
                                 review={review}
-                                isUserCreated={userCreatedReviews.has(review.id!)}
+                                isUserCreated={userCreatedReviews.has(review.id)}
                                 onReviewClick={onReviewClick}
                                 onZapSubmit={onZapSubmit}
                             />

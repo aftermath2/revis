@@ -1,6 +1,14 @@
-import { generateSecretKey, getPublicKey, finalizeEvent, VerifiedEvent, EventTemplate, nip19 } from 'nostr-tools';
+/* eslint-disable @typescript-eslint/require-await */
+import { 
+    generateSecretKey,
+    getPublicKey,
+    finalizeEvent,
+    type VerifiedEvent,
+    type EventTemplate,
+    nip19
+} from 'nostr-tools';
 
-import { NostrRelays, Signer } from './nostr';
+import { type NostrRelays, type Signer, SignerType } from './nostr';
 import { ConfigKey } from '../types';
 import StoredString from '../storage';
 
@@ -44,8 +52,16 @@ class KeySigner implements Signer {
         return getPublicKey(this.privateKey);
     }
 
+    async getPrivateKey(): Promise<string | undefined> {
+        return this.nsec.get();
+    }
+
     async getRelays(): Promise<NostrRelays> {
         return {};
+    }
+
+    getType(): SignerType {
+        return SignerType.KEY;
     }
     
     async signEvent(event: EventTemplate): Promise<VerifiedEvent> {

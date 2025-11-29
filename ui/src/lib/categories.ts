@@ -76,3 +76,9 @@ const CATEGORIES = {
         "relay": {}
     }
 }
+
+export const getCategoryName = (path: string): string => {
+    const segments = path.split('/');
+    const categoryName = segments[segments.length - 1] || path;
+    return categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
+};

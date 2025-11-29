@@ -1,9 +1,9 @@
-import { useState, useMemo, useEffect, useCallback, memo } from 'react';
+import { useState, useMemo, useCallback, memo } from 'react';
 
 import { FeedNoteCard, Filters } from './';
 import { LoadingSpinner } from '../common';
 import { useInfiniteScroll } from '../../hooks';
-import { Note, SortOption } from '../../lib/types';
+import { type Note, SortOption } from '../../lib/types';
 import { sampleNotes } from '../../data/sampleData';
 import { sortingAlgorithms } from '../../lib/sortingAlgorithms';
 import { ITEMS_PER_LOAD } from '../../lib/constants';
@@ -46,10 +46,6 @@ const NotesList = memo((props: NotesFeedProps) => {
         [searchFilteredNotes, visibleNotesCount]
     );
     const hasMore = visibleNotesCount < searchFilteredNotes.length;
-
-    useEffect(() => {
-        setVisibleNotesCount(ITEMS_PER_LOAD);
-    }, [searchFilteredNotes.length, sortBy, searchQuery]);
 
     const loadMore = useCallback(() => {
         if (hasMore) {

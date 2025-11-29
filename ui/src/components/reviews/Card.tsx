@@ -2,11 +2,11 @@ import { memo, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { OfflineBolt } from '@mui/icons-material';
 
-import { Review } from '../../lib/types';
+import { type Review } from '../../lib/types';
 import { formatNumber } from '../../lib/zapUtils';
 import { ZapForm } from './';
 import { Avatar, StarDisplay } from '../common';
-import { useNostrContext } from '../../contexts';
+import { useNostrContext, useUserContext } from '../../contexts';
 import styles from './Card.module.css';
 
 interface ReviewCardProps {
@@ -19,7 +19,8 @@ interface ReviewCardProps {
 
 const ReviewCard = memo((props: ReviewCardProps) => {
     const navigate = useNavigate();
-    const { nostrClient, setShowLoginModal } = useNostrContext();
+    const { nostrClient } = useNostrContext();
+    const { setShowLoginModal } = useUserContext();
     const [isAnimating, setIsAnimating] = useState(false);
     const [showZapForm, setShowZapForm] = useState(false);
     const [isZapped, setIsZapped] = useState(false);
@@ -27,10 +28,10 @@ const ReviewCard = memo((props: ReviewCardProps) => {
     const [showExpandButton, setShowExpandButton] = useState(false);
 
     const onUserClick = () => {
-        navigate(`/users/${encodeURIComponent(props.review.author)}`);
+        void navigate(`/users/${props.review.authorPublicKey}`);
     };
 
-    const totalZaps = props.review.zapAmount + (props.review.zaps?.reduce((sum, zap) => sum + zap.amount, 0) || 0);
+    const totalZaps = props.review.zapAmount + (props.review.votes?.reduce((sum, zap) => sum + zap.amount, 0) || 0);
 
     // Check if content is long enough to potentially need truncation
     const commentRef = useCallback((node: HTMLParagraphElement | null) => {
@@ -88,7 +89,7 @@ const ReviewCard = memo((props: ReviewCardProps) => {
             className={`${styles.item} ${props.isUserCreated ? styles.itemUserCreated : ''}`}
         >
             <div className={styles.header}>
-                <Avatar url={props.review.avatar} username={props.review.author} />
+                <Avatar url={props.review.avatar} publicKey={props.review.authorPublicKey} />
 
                 <div className={styles.meta}>
                     <div className={styles.authorRow}>
@@ -96,7 +97,7 @@ const ReviewCard = memo((props: ReviewCardProps) => {
                             className={`${styles.author} ${styles.clickableAuthor}`}
                             onClick={onUserClick}
                         >
-                            {props.review.author}
+                            {props.review.authorPublicKey}
                             {props.isUserCreated && <span className={styles.userCreatedBadge}> (You)</span>}
                         </span>
                     </div>

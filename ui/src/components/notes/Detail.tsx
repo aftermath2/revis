@@ -1,44 +1,57 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { useNostrContext } from '../../contexts';
-import { Note, Review } from '../../lib/types';
-import { sampleNotes } from '../../data/sampleData';
+import { useNostrContext, useUserContext } from '../../contexts';
+import { type NostrEvent } from 'nostr-tools';
+import { ITEMS_PER_LOAD } from '../../lib/constants';
+import { type Note, type Review } from '../../lib/types';
 import NoteCard from './Card';
 import ReviewsList from '../reviews/List';
 import { Divider } from '../common';
 import styles from './Detail.module.css';
 
 const NoteDetail = () => {
-    const { nostrClient, setShowLoginModal } = useNostrContext();
+    const { nostrClient } = useNostrContext();
+    const { setShowLoginModal } = useUserContext();
     const navigate = useNavigate();
 
     const { id } = useParams<{ id: string }>();
-    const [notes] = useState<Note[]>(sampleNotes);
-    const [note, setNote] = useState<Note | null>();
+    const [note, setNote] = useState<Note>();
+    const [noteEvent, setNoteEvent] = useState<NostrEvent>();
+    const [reviews, setReviews] = useState<Review[]>([]);
 
     useEffect(() => {
-        setNote(notes.find(n => n.id === id));
-    }, [id, notes]);
+        async function loadNotes() {
+            const [n, event] = await nostrClient.getNote(id || "");
+            setNote(n);
+            setNoteEvent(event);
+        };
 
-    const onAddReview = (review: Review) => {
+        async function loadReviews() {
+            const reviewList = await nostrClient.listReviews([id || ""], ITEMS_PER_LOAD);
+            setReviews(reviewList);
+        }
+
+        void loadNotes();
+        void loadReviews();
+    });
+
+    const onAddReview = async (review: Review) => {
         if (!nostrClient.getSigner()) {
             setShowLoginModal(true);
             return;
         }
 
-        setNote(prevNote => {
-            if (!prevNote) return prevNote;
+        if (!noteEvent) throw new Error("Review event not found");
 
-            return {
-                ...prevNote,
-                reviews: [...prevNote.reviews, review]
-            };
-        });
+        const zapRequest = await nostrClient.createZapRequest(noteEvent, review.zapAmount, review.comment, review.rating);
+        await nostrClient.publish(zapRequest);
+
+        setReviews([...[review], ...reviews])
     }
 
     const onReviewClick = (reviewID: string) => {
-        navigate(`/notes/${id}/reviews/${reviewID}`);
+        void navigate(`/reviews/${reviewID}`);
     };
 
     if (!note) {
@@ -58,7 +71,8 @@ const NoteDetail = () => {
             <Divider spacing="small" />
 
             <ReviewsList
-                reviews={note.reviews}
+                noteID={note.id}
+                reviews={reviews}
                 onAddReview={onAddReview}
                 onReviewClick={onReviewClick}
                 showAddButton={true}

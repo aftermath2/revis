@@ -20,7 +20,7 @@ const ErrorFallback = () => {
                 </p>
 
                 <div className={styles.actions}>
-                    <button className={`${styles.btn} ${styles.btnSecondary}`} onClick={() => window.location.reload()}>
+                    <button className={styles.btn} onClick={() => window.location.pathname = '/'}>
                         Go Home
                     </button>
                 </div>

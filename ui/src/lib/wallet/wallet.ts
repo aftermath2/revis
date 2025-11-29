@@ -1,4 +1,4 @@
-import { EventTemplate } from 'nostr-tools';
+import { type EventTemplate } from 'nostr-tools';
 
 import LightningBackend from "./lightning";
 import NWCBackend from "./nwc";

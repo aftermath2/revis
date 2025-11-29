@@ -77,8 +77,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 60px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+    height: 30px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent);
     pointer-events: none;
 }
 
@@ -89,11 +89,6 @@
     display: block;
     transition: filter 0.3s ease;
     filter: grayscale(20%) contrast(1.1);
-}
-
-.noteImage:hover img {
-    filter: grayscale(0%) contrast(1.2);
-    transform: none;
 }
 
 .noteContent {

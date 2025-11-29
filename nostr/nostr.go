@@ -39,9 +39,9 @@ Review votes: 9734 event with an `e` tag pointing to the upvote/downvote zap (97
 
 // Note represents an article that will be published to various relays.
 type Note struct {
-	ID         string   `json:"id"`
-	Title      string   `json:"title"`
-	Content    string   `json:"content"`
-	ImageURL   string   `json:"image_url"`
-	Categories []string `json:"categories"`
+	ID       string   `json:"id"`
+	Title    string   `json:"title"`
+	Content  string   `json:"content"`
+	ImageURL string   `json:"image_url"`
+	Tags     []string `json:"tags"`
 }

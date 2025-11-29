@@ -1,11 +1,11 @@
-import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { createContext, useContext, useState, type ReactNode, useEffect } from 'react';
 
 import Wallet, { WalletType } from '../lib/wallet/wallet';
 
 interface WalletContextType {
     wallet?: Wallet;
     connectWallet: (type: WalletType, nwcURL?: string) => Promise<void>;
-    disconnectWallet: () => void;
+    disconnectWallet: () => Promise<void>;
 }
 
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
@@ -26,12 +26,12 @@ export const WalletProvider: React.FC<WalletProviderProps> = (props) => {
     const [wallet, setWallet] = useState<Wallet>();
     
     useEffect(() => {
-        const loadWallet = async () => {
+        async function loadWallet() {
             setWallet(await Wallet.load());
         }
 
-        loadWallet();
-    }, [])
+        void loadWallet();
+    })
 
     const connectWallet = async (type: WalletType, nwcURL?: string) => {
         setWallet(await Wallet.create(type, nwcURL));

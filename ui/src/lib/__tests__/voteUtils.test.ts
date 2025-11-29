@@ -4,7 +4,7 @@ import { Review, Note } from '../types';
 // Helper function to create mock review
 const createMockReview = (rating: number, zapAmount: number, overrides = {}): Review => ({
     id: Math.random(),
-    author: 'Test Author',
+    authorPublicKey: 'Test Author',
     avatar: 'https://example.com/avatar.jpg',
     comment: 'Test comment',
     rating,
