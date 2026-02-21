@@ -156,8 +156,8 @@ const parseZap = async (zapReceipt: NostrEvent, recipientLud16?: string): Promis
 const parseReview = async (event: NostrEvent): Promise<Review | undefined> => {
     try {
         const zap = await parseZap(event, REVIS_LNURL_ADDRESS);
-        if (!zap.rating) {
-            throw new Error('Review has no rating');
+        if (!zap.rating || zap.rating < 1 || zap.rating > 5) {
+            throw new Error('Invalid review rating');
         }
 
         return {
